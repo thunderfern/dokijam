@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d31942a06562b2d4eb7461a2ce08435a
+guid: 8853e6cda0f37694d83af3816ca55710
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -35,7 +35,7 @@ ModelImporter:
       takeName: Tomato_Armature|Tomato_Idle
       internalID: -8191941713149113135
       firstFrame: 0
-      lastFrame: 89
+      lastFrame: 89.9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -93,7 +93,7 @@ ModelImporter:
       takeName: Tomato_Armature|Tomato_Jump_Loop
       internalID: -8730704374002448230
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 19.9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -151,7 +151,7 @@ ModelImporter:
       takeName: Tomato_Armature|Tomato_Run
       internalID: 3390888993566552216
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 19.9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,35 +181,6 @@ ModelImporter:
       internalID: -1996974297791224981
       firstFrame: 0
       lastFrame: 7
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Tomato_Armature|Tomato_Squat_Loop
-      takeName: Tomato_Armature|Tomato_Squat_Loop
-      internalID: -5806622700485252093
-      firstFrame: 0
-      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
