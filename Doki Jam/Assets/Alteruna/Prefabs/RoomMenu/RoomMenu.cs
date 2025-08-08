@@ -55,6 +55,7 @@ namespace Alteruna
 				{
 					// for more control, use Multiplayer.CreateRoom
 					Multiplayer.JoinOnDemandRoom();
+                    GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>().Spawn(0);
 					_refreshTime = RefreshInterval;
 				});
 
