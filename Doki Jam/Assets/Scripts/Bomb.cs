@@ -9,10 +9,15 @@ public class Bomb : MonoBehaviour
     {
         //GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
 
-        knockBack();
-        Destroy(gameObject);
+        //knockBack();
+        //Destroy(gameObject);
 
-
+        if (other.gameObject.tag == gameObject.tag)
+        {
+            Instantiate(gameObject, (other.transform.position + transform.position) / 2, Quaternion.identity);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     void knockBack()
@@ -22,10 +27,11 @@ public class Bomb : MonoBehaviour
         foreach (Collider nearby in colliders)
         {
             Vector3 direction = nearby.transform.position - transform.position;
+            Vector3 normalizedDirection = Vector3.Normalize(direction);
             Rigidbody rb = nearby.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddForce(direction*force);
+                rb.AddForce(normalizedDirection * (radius - direction.magnitude) * force);
             }
         }
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9100742714306377027}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,8 +81,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5119357, y: 0.7420232, z: 1}
-  m_Center: {x: -1.450248, y: 0.07320964, z: 0}
+  m_Size: {x: 0.4049406, y: 0.6424666, z: 0.5303438}
+  m_Center: {x: 0.00062954426, y: -0.01646462, z: 0.0029357225}
 --- !u!114 &9100742714306377027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39a95db23b854bbfa18da4ac6cb94c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 50
+  force: 5
   radius: 10
 --- !u!1001 &8627670979243144684
 PrefabInstance:
@@ -123,11 +123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d11f72ee6c58b45c189fa4ff305b42d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9781659
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d11f72ee6c58b45c189fa4ff305b42d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28766817
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d11f72ee6c58b45c189fa4ff305b42d6, type: 3}
       propertyPath: m_LocalPosition.z

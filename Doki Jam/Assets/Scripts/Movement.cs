@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector3(Input.GetAxis("Horizontal") * speed* Time.deltaTime, rb.linearVelocity.y, rb.linearVelocity.z);
+        rb.linearVelocity = rb.linearVelocity + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, rb.linearVelocity.y, rb.linearVelocity.z);
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && isGrounded)
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jump*Time.deltaTime, rb.linearVelocity.z);
