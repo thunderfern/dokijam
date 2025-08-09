@@ -26,6 +26,7 @@ public class OverlayJoinRoom : MonoBehaviour
                     if (room.Name.ToLower() == RoomCodeInput.text)
                     {
                         room.Join();
+                        WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.GAMEPLAY);
                     }
                 }
             }
