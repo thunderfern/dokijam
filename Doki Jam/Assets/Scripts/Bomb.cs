@@ -4,20 +4,21 @@ public class Bomb : MonoBehaviour
 {
     //public GameObject explosion;
     public float force, radius;
+    public GameObject mergeInto;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnCollisionEnter(Collision other)
     {
         //GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
 
-        //knockBack();
-        //Destroy(gameObject);
+        knockBack();
+        Destroy(gameObject);
 
-        if (other.gameObject.tag == gameObject.tag)
+        /*if (other.gameObject.tag == gameObject.tag)
         {
-            Instantiate(gameObject, (other.transform.position + transform.position) / 2, Quaternion.identity);
+            Instantiate(mergeInto, (other.transform.position + transform.position) / 2, Quaternion.identity);
             Destroy(other.gameObject);
             Destroy(gameObject);
-        }
+        }*/
     }
 
     void knockBack()

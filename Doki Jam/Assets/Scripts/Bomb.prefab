@@ -95,8 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39a95db23b854bbfa18da4ac6cb94c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 5
+  force: 20
   radius: 10
+  mergeInto: {fileID: 7015460603209323123, guid: 7af7f4d91b49d004badb6f2baf17f8c0, type: 3}
 --- !u!1001 &8627670979243144684
 PrefabInstance:
   m_ObjectHideFlags: 0

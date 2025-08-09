@@ -9,6 +9,8 @@ TagManager:
   - NetworkManager
   - GameHost
   - Ground
+  - Egg
+  - Egg2
   layers:
   - Default
   - TransparentFX
