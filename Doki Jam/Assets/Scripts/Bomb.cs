@@ -30,7 +30,7 @@ public class Bomb : MonoBehaviour
             Vector3 direction = nearby.transform.position - transform.position;
             Vector3 normalizedDirection = Vector3.Normalize(direction);
             Rigidbody rb = nearby.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (rb)
             {
                 rb.AddForce(normalizedDirection * (radius - direction.magnitude) * force);
             }
