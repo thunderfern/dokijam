@@ -9,20 +9,30 @@ public class Movement : MonoBehaviour
     private bool isGrounded = false;
     private Animator anim;
 
-    [SerializeField] private Vector3 OriginalCollider = new Vector3(0.769214f, 0.9256309f, 1f);
-    [SerializeField] private Vector3 SquatCollider = new Vector3(0.769214f, 0.7905512f, 1f);
+    private Vector3 OriginalCollider = new Vector3(0.769214f, 0.9256309f, 1f);
+    private Vector3 SquatCollider = new Vector3(0.769214f, 0.7905512f, 1f);
 
-    [SerializeField] private Vector3 OriginalColliderPosition = new Vector3(-0.01795003f, 0.2757057f, 0f);
-    [SerializeField] private Vector3 SquatColliderPosition = new Vector3(-0.01795003f, 0.2081659f, 0f);
+    private Vector3 OriginalColliderPosition = new Vector3(-0.01795003f, 0.2757057f, 0f);
+    private Vector3 SquatColliderPosition = new Vector3(-0.01795003f, 0.2081659f, 0f);
 
     BoxCollider coll;
-
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         coll = GetComponent<BoxCollider>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.SetBool("isSquatting", false);
+            Debug.Log("Letgo");
+            coll.size = OriginalCollider;
+            coll.center = OriginalColliderPosition;
+        }
     }
 
     // Update is called once per frame
@@ -49,17 +59,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            anim.SetBool("isSquatting", false);
-            Debug.Log("Letgo");
-            coll.size = OriginalCollider;
-            coll.center = OriginalColliderPosition;
-
-
-        }
-
-
+        
 
         if (horizontalInput > 0.01f)
         {

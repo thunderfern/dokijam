@@ -680,6 +680,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jump: 5
+  OriginalCollider: {x: 0, y: 0, z: 0}
+  SquatCollider: {x: 0, y: 0, z: 0}
+  OriginalColliderPosition: {x: 0, y: 0, z: 0}
+  SquatColliderPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1181196546
 BoxCollider:
   m_ObjectHideFlags: 0
