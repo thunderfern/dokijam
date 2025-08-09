@@ -9,11 +9,11 @@ public class Movement : MonoBehaviour
     private bool isGrounded = false;
     private Animator anim;
 
-    [SerializeField] private Vector3 OriginalCollider = new Vector3(0.769214, 0.9256309, 1);
-    [SerializeField] private Vector3 SquatCollider = new Vector3(0.769214, 0.7905512, 1);
+    [SerializeField] private Vector3 OriginalCollider = new Vector3(0.769214f, 0.9256309f, 1f);
+    [SerializeField] private Vector3 SquatCollider = new Vector3(0.769214f, 0.7905512f, 1f);
 
-    [SerializeField] private Vector3 OriginalColliderPosition = new Vector3(-0.01795003, 0.2757057, 0);
-    [SerializeField] private Vector3 SquatColliderPosition = new Vector3(-0.01795003, 0.2081659, 0);
+    [SerializeField] private Vector3 OriginalColliderPosition = new Vector3(-0.01795003f, 0.2757057f, 0f);
+    [SerializeField] private Vector3 SquatColliderPosition = new Vector3(-0.01795003f, 0.2081659f, 0f);
 
     BoxCollider coll;
 
