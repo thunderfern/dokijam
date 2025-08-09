@@ -19,13 +19,28 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = rb.linearVelocity + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, rb.linearVelocity.y, rb.linearVelocity.z);
+        rb.linearVelocity = rb.linearVelocity + new Vector3(Input.GetAxis("Horizontal") * speed, rb.linearVelocity.y, rb.linearVelocity.z);
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && isGrounded)
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jump*Time.deltaTime, rb.linearVelocity.z);
+            Debug.Log("uhh");
+            rb.linearVelocity = rb.linearVelocity + new Vector3(rb.linearVelocity.x, jump, rb.linearVelocity.z);
             isGrounded = false;
             anim.SetBool("isJumping", true);
-        } 
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("isSquatting", true);
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.S)){
+            anim.SetBool("isSquatting", false);
+
+        }
+
+
+
         if (horizontalInput > 0.01f)
         {
             transform.localScale = Vector3.one;
