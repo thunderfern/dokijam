@@ -19,11 +19,11 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = rb.linearVelocity + new Vector3(Input.GetAxis("Horizontal") * speed, rb.linearVelocity.y, rb.linearVelocity.z);
+        rb.linearVelocity = new Vector3(Mathf.Max(Mathf.Min(Input.GetAxis("Horizontal") * speed + rb.linearVelocity.x, 3.0f), -3.0f), rb.linearVelocity.y, rb.linearVelocity.z);
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && isGrounded)
         {
             Debug.Log("uhh");
-            rb.linearVelocity = rb.linearVelocity + new Vector3(rb.linearVelocity.x, jump, rb.linearVelocity.z);
+            rb.linearVelocity = rb.linearVelocity + new Vector3(0, jump, 0);
             isGrounded = false;
             anim.SetBool("isJumping", true);
         }
