@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Egg
   - Egg2
+  - WorldHost
   layers:
   - Default
   - TransparentFX

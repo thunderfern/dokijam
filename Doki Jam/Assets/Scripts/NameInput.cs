@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 
-public class NameInput : MonoBehaviour {
+public class InputText : MonoBehaviour {
     private string currentName;
     public TMP_Text textObject;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
