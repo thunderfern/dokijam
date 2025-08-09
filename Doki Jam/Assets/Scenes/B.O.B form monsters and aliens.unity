@@ -673,8 +673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74167967547bd4b7a8c0ba993cdd049d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  jump: 20
+  speed: 5
+  jump: 5
+  OriginalCollider: {x: 0.769214, y: 0.9256309, z: 1}
+  SquatCollider: {x: 0.769214, y: 0.7905512, z: 1}
+  OriginalColliderPosition: {x: -0.01795003, y: 0.2757057, z: 0}
+  SquatColliderPosition: {x: -0.01795003, y: 0.2081659, z: 0}
 --- !u!65 &1181196546
 BoxCollider:
   m_ObjectHideFlags: 0

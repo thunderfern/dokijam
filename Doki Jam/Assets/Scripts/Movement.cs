@@ -9,10 +9,20 @@ public class Movement : MonoBehaviour
     private bool isGrounded = false;
     private Animator anim;
 
+    [SerializeField] private Vector3 OriginalCollider = new Vector3();
+    [SerializeField] private Vector3 SquatCollider = new Vector3();
+
+    [SerializeField] private Vector3 OriginalColliderPosition = new Vector3();
+    [SerializeField] private Vector3 SquatColliderPosition = new Vector3();
+
+    BoxCollider coll;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
+        coll = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -26,16 +36,26 @@ public class Movement : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity + new Vector3(0, jump, 0);
             isGrounded = false;
             anim.SetBool("isJumping", true);
+        
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             anim.SetBool("isSquatting", true);
+            Debug.Log("hold");
+            coll.size = SquatCollider;
+            coll.center= SquatColliderPosition;
+
 
         }
 
-        if (Input.GetKeyUp(KeyCode.S)){
+        if (Input.GetKeyUp(KeyCode.S))
+        {
             anim.SetBool("isSquatting", false);
+            Debug.Log("Letgo");
+            coll.size = OriginalCollider;
+            coll.center = OriginalColliderPosition;
+
 
         }
 
