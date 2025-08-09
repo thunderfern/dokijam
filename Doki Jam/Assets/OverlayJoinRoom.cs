@@ -27,6 +27,7 @@ public class OverlayJoinRoom : MonoBehaviour
                     {
                         room.Join();
                         WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.GAMEPLAY);
+                        WorldHost.GetComponent<WorldHost>().DisableOverlay(WorldOverlay.JOIN_ROOM);
                     }
                 }
             }

@@ -18,6 +18,7 @@ public class GameHost : MonoBehaviour
 
     // Other game data
     private Spawner _spawner;
+    private Multiplayer _multiplayer;
     private int nstartMap = 0;
     private int nendMap = 0;
 
@@ -34,34 +35,37 @@ public class GameHost : MonoBehaviour
     void Start()
     {
         _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
-
+        _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        mapTime += Time.deltaTime;
-        if (ncurrentMap == 0)
+        if (_multiplayer.Me.IsHost)
         {
-            currentMap = _spawner.Spawn(1);
-            ncurrentMap = 1;
-            mapTime = 0;
-        }
-        if (mapTime >= 10f)
-        {
-            _spawner.Despawn(currentMap);
-
-            if (ncurrentMap == 1)
-            {
-                currentMap = _spawner.Spawn(2);
-                ncurrentMap = 2;
-            }
-            else
+            mapTime += Time.deltaTime;
+            if (ncurrentMap == 0)
             {
                 currentMap = _spawner.Spawn(1);
                 ncurrentMap = 1;
+                mapTime = 0;
             }
-            mapTime = 0;
+            if (mapTime >= 10f)
+            {
+                _spawner.Despawn(currentMap);
+
+                if (ncurrentMap == 1)
+                {
+                    currentMap = _spawner.Spawn(2);
+                    ncurrentMap = 2;
+                }
+                else
+                {
+                    currentMap = _spawner.Spawn(1);
+                    ncurrentMap = 1;
+                }
+                mapTime = 0;
+            }
         }
 
     }
