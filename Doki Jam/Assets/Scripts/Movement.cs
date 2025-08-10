@@ -56,7 +56,6 @@ public class Movement : MonoBehaviour
             coll.size = SquatCollider;
             coll.center= SquatColliderPosition;
 
-
         }
 
         
