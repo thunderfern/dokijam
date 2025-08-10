@@ -17,8 +17,14 @@ public class Movement : MonoBehaviour
 
     BoxCollider coll;
 
+    private Alteruna.Avatar _avatar;
+
     void Start()
     {
+        _avatar = GetComponent<Alteruna.Avatar>();
+
+        if (!_avatar.IsMe) return;
+
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         coll = GetComponent<BoxCollider>();
@@ -26,6 +32,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (!_avatar.IsMe) return;
         if (Input.GetKeyUp(KeyCode.S))
         {
             anim.SetBool("isSquatting", false);
@@ -38,6 +45,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!_avatar.IsMe) return;
         float horizontalInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector3(Mathf.Max(Mathf.Min(Input.GetAxis("Horizontal") * speed + rb.linearVelocity.x, 3.0f), -3.0f), rb.linearVelocity.y, rb.linearVelocity.z);
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && isGrounded)
@@ -58,8 +66,6 @@ public class Movement : MonoBehaviour
 
         }
 
-        
-
         if (horizontalInput > 0.01f)
         {
             transform.localScale = Vector3.one;
@@ -72,6 +78,7 @@ public class Movement : MonoBehaviour
 
     }
     private void OnCollisionEnter(Collision other) {
+        if (!_avatar.IsMe) return;
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = true;

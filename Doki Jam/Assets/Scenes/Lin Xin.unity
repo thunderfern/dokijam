@@ -3625,7 +3625,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1186604022}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.66666675
+  m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3904,7 +3904,7 @@ Transform:
   m_GameObject: {fileID: 1593295733}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.7717066}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5240,7 +5240,7 @@ MonoBehaviour:
     Users: 
   _maxPlayers: 10
   AvatarSpawning: 1
-  AvatarPrefab: {fileID: 8220189513001857011, guid: a1ef98c476667864f8eb897200d6f1ae, type: 3}
+  AvatarPrefab: {fileID: 3381428630850881622, guid: dc070217026edec478ab831d50d23612, type: 3}
   AvatarSpawnLocation: {fileID: 1593295734}
   SpawnAvatarPerIndex: 0
   AvatarSpawnLocations: []
@@ -5354,9 +5354,9 @@ MonoBehaviour:
   Multiplayer: {fileID: 1917495630}
   SpawnableObjects:
   - {fileID: 3799199611514076961, guid: 76d02eac3678bd14590901d70a9199e5, type: 3}
-  - {fileID: 1451255448227768701, guid: 963fbc0277321d0448a4dcfd894217d3, type: 3}
-  - {fileID: 4318864705640788440, guid: 12e327357673dc74d8dc2e09b8d3239d, type: 3}
-  - {fileID: 0}
+  - {fileID: 9036298042420662332, guid: b1ac40688c87c3047a4a0fb8c1d3526a, type: 3}
+  - {fileID: 708871315872847324, guid: 0d8c28c736fd02b49ac2422e1ab4ddd1, type: 3}
+  - {fileID: 9036298042420662332, guid: 80d5efc548e18504cbe1135c3e536d6e, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   OnObjectSpawn:

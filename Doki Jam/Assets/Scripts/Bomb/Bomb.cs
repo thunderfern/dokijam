@@ -9,7 +9,7 @@ public class Bomb : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
-
+        Debug.Log(other.gameObject);
         knockBack();
         Destroy(gameObject);
 
