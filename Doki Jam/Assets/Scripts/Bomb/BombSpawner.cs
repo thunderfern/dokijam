@@ -3,12 +3,12 @@ using UnityEngine;
 public class BombSpawner : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public GameObject bomb;
     public GameObject bombSpawnPoint;
     public GameObject gun;
     void Start()
     {
-        
+        bombSpawnPoint = GameObject.FindGameObjectWithTag("bomb spawn");
+        gun = GameObject.FindGameObjectWithTag("gun");
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class BombSpawner : MonoBehaviour
             if (plane.Raycast(ray, out float distance))
             {
                 Vector3 point = ray.GetPoint(distance);
-                GameObject bombClone = Instantiate(bomb, bombSpawnPoint.transform.position, Quaternion.identity);
+                GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
                 bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * 400);
             }
         }

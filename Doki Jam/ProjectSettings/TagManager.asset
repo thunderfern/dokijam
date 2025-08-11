@@ -12,6 +12,8 @@ TagManager:
   - Egg
   - Egg2
   - WorldHost
+  - bomb spawn
+  - gun
   layers:
   - Default
   - TransparentFX
