@@ -40,7 +40,6 @@ public class GameHost : MonoBehaviour
         _multiplayer.SpawnAvatar();
         // spawns bomb spawner
         _spawner.Spawn(1);
-        
     }
 
     // Update is called once per frame

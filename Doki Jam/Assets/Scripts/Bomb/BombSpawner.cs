@@ -5,10 +5,12 @@ public class BombSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject bombSpawnPoint;
     public GameObject gun;
+    public GameObject player;
     void Start()
     {
         bombSpawnPoint = GameObject.FindGameObjectWithTag("bomb spawn");
         gun = GameObject.FindGameObjectWithTag("gun");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -47,7 +49,7 @@ public class BombSpawner : MonoBehaviour
             {
                 Vector3 point = ray.GetPoint(distance) - transform.position;
                 float angle;
-                if (transform.localScale.x == 1)
+                if (player.transform.localScale.x == 1)
                 {
                     angle = Vector3.Angle(Vector3.right, point);
                     if (point.y < 0) angle = 360 - angle;
@@ -55,7 +57,10 @@ public class BombSpawner : MonoBehaviour
                 else
                 {
                     angle = Vector3.Angle(Vector3.left, point);
-                    if (point.y > 0) angle = 360 - angle;
+                    if (point.y > 0)
+                    {
+                        angle = 360 - angle;
+                    }
                 }
                 gun.transform.eulerAngles = new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, angle);
             }
