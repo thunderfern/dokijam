@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour
         //GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
         Debug.Log(other.gameObject);
         knockBack();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         /*if (other.gameObject.tag == gameObject.tag)
         {

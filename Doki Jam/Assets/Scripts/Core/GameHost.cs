@@ -29,13 +29,18 @@ public class GameHost : MonoBehaviour
 
     // survival
     public GameObject bombSpawner;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
         _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
         _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
+
+        _multiplayer.SpawnAvatar();
+        // spawns bomb spawner
+        _spawner.Spawn(1);
+        
     }
 
     // Update is called once per frame
@@ -46,23 +51,23 @@ public class GameHost : MonoBehaviour
             mapTime += Time.deltaTime;
             if (ncurrentMap == 0)
             {
-                currentMap = _spawner.Spawn(1);
-                ncurrentMap = 1;
+                currentMap = _spawner.Spawn(2);
+                ncurrentMap = 2;
                 mapTime = 0;
             }
             if (mapTime >= 10f)
             {
                 _spawner.Despawn(currentMap);
 
-                if (ncurrentMap == 1)
+                if (ncurrentMap == 2)
                 {
-                    currentMap = _spawner.Spawn(2);
-                    ncurrentMap = 2;
+                    currentMap = _spawner.Spawn(3);
+                    ncurrentMap = 3;
                 }
                 else
                 {
-                    currentMap = _spawner.Spawn(1);
-                    ncurrentMap = 1;
+                    currentMap = _spawner.Spawn(2);
+                    ncurrentMap = 2;
                 }
                 mapTime = 0;
             }

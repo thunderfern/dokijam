@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbfcfcfdbaf7db409470f67625c35ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMode: 0
   currentMap: {fileID: 0}
+  mapTime: 0
+  bombSpawner: {fileID: 8150001006133752708, guid: b5c32e46dc613a048a019b464b48a98a, type: 3}
