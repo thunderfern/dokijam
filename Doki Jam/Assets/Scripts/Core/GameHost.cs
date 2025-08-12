@@ -37,9 +37,14 @@ public class GameHost : MonoBehaviour
         _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
         _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
 
-        _multiplayer.SpawnAvatar();
+        //_multiplayer.SpawnAvatar();
         // spawns bomb spawner
+        if (_multiplayer.Me.IsHost)
+        {
+            _multiplayer.SpawnAvatar();
+        }
         _spawner.Spawn(1);
+        
     }
 
     // Update is called once per frame
@@ -70,6 +75,10 @@ public class GameHost : MonoBehaviour
                 }
                 mapTime = 0;
             }
+        }
+        if (mapTime < 0.0001f && _multiplayer.GetAvatar() == null)
+        {
+            _multiplayer.SpawnAvatar();
         }
 
     }
