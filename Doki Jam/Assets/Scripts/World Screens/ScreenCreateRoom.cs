@@ -18,7 +18,7 @@ public class ScreenCreateRoom : MonoBehaviour
         CreateButton.onClick.AddListener(() =>
         {
             multiplayer.CreateRoom();
-            GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Alteruna.Spawner>().Spawn(0);
+            //GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Alteruna.Spawner>().Spawn(0);
             WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.GAMEPLAY);
         });
     }
