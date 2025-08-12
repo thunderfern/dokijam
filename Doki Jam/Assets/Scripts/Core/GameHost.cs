@@ -42,8 +42,8 @@ public class GameHost : MonoBehaviour
         if (_multiplayer.Me.IsHost)
         {
             _multiplayer.SpawnAvatar();
+            _spawner.Spawn(1);
         }
-        _spawner.Spawn(1);
         
     }
 
@@ -52,6 +52,10 @@ public class GameHost : MonoBehaviour
     {
         if (_multiplayer.Me.IsHost)
         {
+            if (GameObject.FindGameObjectWithTag("bomb spawner") == null)
+            {
+                _spawner.Spawn(1);
+            }
             mapTime += Time.deltaTime;
             if (ncurrentMap == 0)
             {

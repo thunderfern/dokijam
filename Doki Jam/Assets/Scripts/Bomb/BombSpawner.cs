@@ -28,7 +28,7 @@ public class BombSpawner : MonoBehaviour
             }
         }*/
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero); // z = 0 plane
@@ -65,7 +65,7 @@ public class BombSpawner : MonoBehaviour
                 gun.transform.eulerAngles = new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, angle);
             }
 
-        }
+        }*/
 
         
     }
