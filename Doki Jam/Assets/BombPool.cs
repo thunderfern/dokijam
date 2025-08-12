@@ -15,21 +15,28 @@ public class BombPool : MonoBehaviour
     public List<int> prefabs;
     public int maxBombs;
 
+    private Multiplayer _multiplayer;
+
     private Spawner _spawner;
     private List<List<GameObject>> bombPool;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bombPool = new List<List<GameObject>>();
-        _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
-        for (int i = 0; i < prefabs.Count; i++)
+        _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
+
+        if (_multiplayer.Me.IsHost)
         {
-            bombPool.Add(new List<GameObject>());
-            for (int j = 0; j < maxBombs; j++)
+            bombPool = new List<List<GameObject>>();
+            _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
+            for (int i = 0; i < prefabs.Count; i++)
             {
-                bombPool[i].Add(_spawner.Spawn(prefabs[i]));
-                bombPool[i][j].SetActive(false);
+                bombPool.Add(new List<GameObject>());
+                for (int j = 0; j < maxBombs; j++)
+                {
+                    bombPool[i].Add(_spawner.Spawn(prefabs[i]));
+                    bombPool[i][j].SetActive(false);
+                }
             }
         }
     }
