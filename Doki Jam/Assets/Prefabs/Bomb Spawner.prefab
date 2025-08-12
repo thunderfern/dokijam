@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs: 05000000
-  maxBombs: 100
+  maxBombs: 3
 --- !u!114 &9215700519735336132
 MonoBehaviour:
   m_ObjectHideFlags: 0

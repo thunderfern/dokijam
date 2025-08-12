@@ -14,6 +14,7 @@ TagManager:
   - WorldHost
   - bomb spawn
   - gun
+  - bomb spawner
   layers:
   - Default
   - TransparentFX
