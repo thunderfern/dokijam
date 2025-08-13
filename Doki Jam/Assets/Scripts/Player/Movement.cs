@@ -19,20 +19,26 @@ public class Movement : MonoBehaviour
 
     private Alteruna.Avatar _avatar;
 
+    public bool isMultiplayer;
+
+    int velocityWithAdded;
+
     void Start()
     {
         _avatar = GetComponent<Alteruna.Avatar>();
 
-        if (!_avatar.IsMe) return;
+        if (isMultiplayer && !_avatar.IsMe) return;
 
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         coll = GetComponent<BoxCollider>();
+
+        velocityWithAdded = 0;
     }
 
     void Update()
     {
-        if (!_avatar.IsMe) return;
+        if (isMultiplayer && !_avatar.IsMe) return;
         if (Input.GetKeyUp(KeyCode.S))
         {
             anim.SetBool("isSquatting", false);
@@ -45,16 +51,39 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!_avatar.IsMe) return;
+        if (isMultiplayer && !_avatar.IsMe) return;
+
         float horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector3(Mathf.Max(Mathf.Min(Input.GetAxis("Horizontal") * speed + rb.linearVelocity.x, 3.0f), -3.0f), rb.linearVelocity.y, rb.linearVelocity.z);
+
+        float excessVelocity = rb.linearVelocity.x;
+        
+        if (excessVelocity < speed * -1 || excessVelocity > speed) excessVelocity -= speed * velocityWithAdded;
+        //Debug.Log(excessVelocity);
+        excessVelocity *= 0.95f;
+
+        if (Input.GetAxis("Horizontal") > 0.01f)
+        {
+            velocityWithAdded = 1;
+            rb.linearVelocity = new Vector3(speed + excessVelocity, rb.linearVelocity.y, rb.linearVelocity.z);
+        }
+        else if (Input.GetAxis("Horizontal") < -0.01f)
+        {
+            velocityWithAdded = -1;
+            rb.linearVelocity = new Vector3(-1f * speed + excessVelocity, rb.linearVelocity.y, rb.linearVelocity.z);
+        }
+        else
+        {
+            velocityWithAdded = 0;
+            rb.linearVelocity = new Vector3(excessVelocity, rb.linearVelocity.y, rb.linearVelocity.z);
+        }
+        //Debug.Log(excessVelocity);
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && isGrounded)
         {
             Debug.Log("uhh");
             rb.linearVelocity = rb.linearVelocity + new Vector3(0, jump, 0);
             isGrounded = false;
             anim.SetBool("isJumping", true);
-        
+
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -78,7 +107,7 @@ public class Movement : MonoBehaviour
 
     }
     private void OnCollisionEnter(Collision other) {
-        if (!_avatar.IsMe) return;
+        if (isMultiplayer && !_avatar.IsMe) return;
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = true;

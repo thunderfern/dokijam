@@ -4,21 +4,24 @@ public class Bomb : MonoBehaviour
 {
     //public GameObject explosion;
     public float force, radius;
-    public GameObject mergeInto;
+    public BombType mergeInto;
+    private GameObject bombSpawner;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnCollisionEnter(Collision other)
     {
+        bombSpawner = GameObject.FindGameObjectWithTag("bomb spawner");
         //GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
-        Debug.Log(other.gameObject);
-        knockBack();
-        gameObject.SetActive(false);
+        //Debug.Log(other.gameObject);
+        //knockBack();
+        //gameObject.SetActive(false);
 
-        /*if (other.gameObject.tag == gameObject.tag)
+        if (other.gameObject.tag == gameObject.tag && gameObject.activeInHierarchy && other.gameObject.activeInHierarchy)
         {
-            Instantiate(mergeInto, (other.transform.position + transform.position) / 2, Quaternion.identity);
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }*/
+            other.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            knockBack();
+            if (mergeInto != BombType.NULL) bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2);
+        }
     }
 
     void knockBack()
@@ -32,7 +35,7 @@ public class Bomb : MonoBehaviour
             Rigidbody rb = nearby.GetComponent<Rigidbody>();
             if (rb)
             {
-                rb.AddForce(normalizedDirection * (radius - direction.magnitude) * force);
+                rb.AddForce(normalizedDirection * (radius - direction.magnitude) * force, ForceMode.Impulse);
             }
         }
     }

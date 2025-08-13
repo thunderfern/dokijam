@@ -15,6 +15,10 @@ TagManager:
   - bomb spawn
   - gun
   - bomb spawner
+  - eggdragoon
+  - regulardragoon
+  - longdragoon
+  - chonkydragoon
   layers:
   - Default
   - TransparentFX
@@ -22,8 +26,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Bomb
   - 
   - 
   - 

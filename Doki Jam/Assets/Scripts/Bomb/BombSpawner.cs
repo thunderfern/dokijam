@@ -6,6 +6,7 @@ public class BombSpawner : MonoBehaviour
     public GameObject bombSpawnPoint;
     public GameObject gun;
     public GameObject player;
+    public int shootingForce;
     void Start()
     {
         bombSpawnPoint = GameObject.FindGameObjectWithTag("bomb spawn");
@@ -28,7 +29,7 @@ public class BombSpawner : MonoBehaviour
             }
         }*/
 
-        /*if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero); // z = 0 plane
@@ -37,17 +38,16 @@ public class BombSpawner : MonoBehaviour
             {
                 Vector3 point = ray.GetPoint(distance);
                 GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
-                bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * 400);
+                bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
             }
         }
         else
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero); // z = 0 plane
-
             if (plane.Raycast(ray, out float distance))
             {
-                Vector3 point = ray.GetPoint(distance) - transform.position;
+                Vector3 point = ray.GetPoint(distance) - player.transform.position;
                 float angle;
                 if (player.transform.localScale.x == 1)
                 {
@@ -65,7 +65,7 @@ public class BombSpawner : MonoBehaviour
                 gun.transform.eulerAngles = new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, angle);
             }
 
-        }*/
+        }
 
         
     }

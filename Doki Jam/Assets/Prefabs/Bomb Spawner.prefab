@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e49445fda2184f8a2e8a25f0f743e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: 05000000
+  prefabs: []
   maxBombs: 3
 --- !u!114 &9215700519735336132
 MonoBehaviour:
@@ -62,3 +62,4 @@ MonoBehaviour:
   bombSpawnPoint: {fileID: 0}
   gun: {fileID: 0}
   player: {fileID: 0}
+  shootingForce: 100
