@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 3
-  radius: 10
+  radius: 15
   mergeInto: 3
 --- !u!1001 &2168442439566982146
 PrefabInstance:
@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5762019239345323482, guid: e53e1e38defc9497fbb52e772090fbc7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a82d4c056add427d861538c7ac9b982, type: 2}
     - target: {fileID: 919132149155446097, guid: e53e1e38defc9497fbb52e772090fbc7, type: 3}
       propertyPath: m_Name
       value: Dragoon_Long

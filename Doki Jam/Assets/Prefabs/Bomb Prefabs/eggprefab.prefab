@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39a95db23b854bbfa18da4ac6cb94c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3
-  radius: 10
+  force: 1
+  radius: 5
   mergeInto: 1
 --- !u!1001 &2462080119843987991
 PrefabInstance:
@@ -106,6 +106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 21174328132864656}
     m_Modifications:
+    - target: {fileID: -8935028960112422598, guid: d11f72ee6c58b45c189fa4ff305b42d6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 86cf271bac6694eb68a652bc8c3fdb00, type: 2}
     - target: {fileID: -8679921383154817045, guid: d11f72ee6c58b45c189fa4ff305b42d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.04
