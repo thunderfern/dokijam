@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e49445fda2184f8a2e8a25f0f743e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
-  maxBombs: 3
+  prefabs: 02000000030000000400000005000000
+  maxBombs: 20
 --- !u!114 &9215700519735336132
 MonoBehaviour:
   m_ObjectHideFlags: 0

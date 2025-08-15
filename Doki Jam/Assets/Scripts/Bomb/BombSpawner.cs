@@ -1,4 +1,5 @@
 using UnityEngine;
+using Alteruna;
 
 public class BombSpawner : MonoBehaviour
 {
@@ -7,11 +8,13 @@ public class BombSpawner : MonoBehaviour
     public GameObject gun;
     public GameObject player;
     public int shootingForce;
+    private Alteruna.Avatar _avatar;
     void Start()
     {
-        bombSpawnPoint = GameObject.FindGameObjectWithTag("bomb spawn");
-        gun = GameObject.FindGameObjectWithTag("gun");
-        player = GameObject.FindGameObjectWithTag("Player");
+        //bombSpawnPoint = GameObject.FindGameObjectWithTag("bomb spawn");
+        //gun = GameObject.FindGameObjectWithTag("gun");
+        //player = GameObject.FindGameObjectWithTag("Player");
+        _avatar = player.GetComponent<Alteruna.Avatar>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,8 @@ public class BombSpawner : MonoBehaviour
             }
         }*/
 
+
+        if (!_avatar.IsMe) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

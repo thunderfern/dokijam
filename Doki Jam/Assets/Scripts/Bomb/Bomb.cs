@@ -1,12 +1,19 @@
 using UnityEngine;
+using Alteruna;
 
-public class Bomb : MonoBehaviour
+public class Bomb : AttributesSync
 {
     //public GameObject explosion;
     public float force, radius;
     public BombType mergeInto;
     private GameObject bombSpawner;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         bombSpawner = GameObject.FindGameObjectWithTag("bomb spawner");
@@ -17,13 +24,19 @@ public class Bomb : MonoBehaviour
 
         if (other.gameObject.tag == gameObject.tag && gameObject.activeInHierarchy && other.gameObject.activeInHierarchy)
         {
-            other.gameObject.SetActive(false);
-            gameObject.SetActive(false);
-            knockBack();
+            other.gameObject.GetComponent<Bomb>().SetState(false);
+            gameObject.GetComponent<Bomb>().SetState(false);
+            BroadcastRemoteMethod("knockBack");
             if (mergeInto != BombType.NULL) bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2);
         }
     }
 
+    public void SetState(bool state)
+    {
+        BroadcastRemoteMethod("SyncActive", state);
+    }
+
+    [SynchronizableMethod]
     void knockBack()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
@@ -38,5 +51,11 @@ public class Bomb : MonoBehaviour
                 rb.AddForce(normalizedDirection * (radius - direction.magnitude) * force, ForceMode.Impulse);
             }
         }
+    }
+
+    [SynchronizableMethod]
+    void SyncActive(bool state)
+    {
+        gameObject.SetActive(state);
     }
 }

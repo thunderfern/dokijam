@@ -13,7 +13,8 @@ public enum BombType
 
 public class BombPool : MonoBehaviour
 {
-    public List<GameObject> prefabs;
+    //public List<GameObject> prefabs;
+    public List<int> prefabs;
     public int maxBombs;
 
     private Multiplayer _multiplayer;
@@ -24,18 +25,20 @@ public class BombPool : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //_multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
+        _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
 
         bombPool = new List<List<GameObject>>();
-        //_spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
-        for (int i = 0; i < prefabs.Count; i++)
+        _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
+        if (_multiplayer.CurrentRoom.GetUserCount() == 1)
         {
-            bombPool.Add(new List<GameObject>());
-            for (int j = 0; j < maxBombs; j++)
+            for (int i = 0; i < prefabs.Count; i++)
             {
-                bombPool[i].Add(Instantiate(prefabs[i]));
-                //bombPool[i].Add(_spawner.Spawn(prefabs[i]));
-                bombPool[i][j].SetActive(false);
+                bombPool.Add(new List<GameObject>());
+                for (int j = 0; j < maxBombs; j++)
+                {
+                    //bombPool[i].Add(Instantiate(prefabs[i]));
+                    bombPool[i].Add(_spawner.Spawn(prefabs[i], new Vector3(-10, -10, 0)));
+                }
             }
         }
     }
@@ -53,7 +56,7 @@ public class BombPool : MonoBehaviour
             if (!bombPool[(int)bomb][i].activeInHierarchy)
             {
                 bombPool[(int)bomb][i].transform.position = position;
-                bombPool[(int)bomb][i].SetActive(true);
+                bombPool[(int)bomb][i].GetComponent<Bomb>().SetState(true);
                 return bombPool[(int)bomb][i];
             }
         }

@@ -42,7 +42,7 @@ public class GameHost : MonoBehaviour
         if (_multiplayer.Me.IsHost)
         {
             _multiplayer.SpawnAvatar();
-            _spawner.Spawn(1);
+            //_spawner.Spawn(1);
         }
         
     }
@@ -52,30 +52,30 @@ public class GameHost : MonoBehaviour
     {
         if (_multiplayer.Me.IsHost)
         {
-            if (GameObject.FindGameObjectWithTag("bomb spawner") == null)
+            /*if (GameObject.FindGameObjectWithTag("bomb spawner") == null)
             {
-                _spawner.Spawn(1);
-            }
+                _spawner.Spawn(6);
+            }*/
             mapTime += Time.deltaTime;
             if (ncurrentMap == 0)
             {
-                currentMap = _spawner.Spawn(2);
-                ncurrentMap = 2;
+                currentMap = _spawner.Spawn(6);
+                ncurrentMap = 6;
                 mapTime = 0;
             }
             if (mapTime >= 10f)
             {
                 _spawner.Despawn(currentMap);
 
-                if (ncurrentMap == 2)
+                if (ncurrentMap == 6)
                 {
-                    currentMap = _spawner.Spawn(3);
-                    ncurrentMap = 3;
+                    currentMap = _spawner.Spawn(7);
+                    ncurrentMap = 7;
                 }
                 else
                 {
-                    currentMap = _spawner.Spawn(2);
-                    ncurrentMap = 2;
+                    currentMap = _spawner.Spawn(6);
+                    ncurrentMap = 6;
                 }
                 mapTime = 0;
             }

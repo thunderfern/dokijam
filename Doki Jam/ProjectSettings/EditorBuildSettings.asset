@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Lin Xin.unity
     guid: 6e7e1d18b38536a40b4bef7561c5ced5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Multiplayer tests.unity
     guid: 40b5216b5cd1a9a43beb2a63dfd0ddb9
   m_configObjects:
