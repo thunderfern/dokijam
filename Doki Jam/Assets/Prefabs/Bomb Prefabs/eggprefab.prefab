@@ -100,8 +100,8 @@ MonoBehaviour:
   _uidString: 4d633213-becb-4a8f-82e7-ec1cd37c0569
   Reliability: 1
   LocalMethodBehavior: 1
-  force: 3
-  radius: 10
+  force: 0
+  radius: 5
   mergeInto: 1
 --- !u!114 &6124938782722671135
 MonoBehaviour:
@@ -128,6 +128,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 21174328132864656}
     m_Modifications:
+    - target: {fileID: -8935028960112422598, guid: d11f72ee6c58b45c189fa4ff305b42d6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 86cf271bac6694eb68a652bc8c3fdb00, type: 2}
     - target: {fileID: -8679921383154817045, guid: d11f72ee6c58b45c189fa4ff305b42d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.04

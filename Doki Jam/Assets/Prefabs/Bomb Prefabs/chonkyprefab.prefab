@@ -99,8 +99,8 @@ MonoBehaviour:
   _uidString: d9763b9d-2bb8-4d91-bd80-f0731374d2db
   Reliability: 1
   LocalMethodBehavior: 1
-  force: 4
-  radius: 10
+  force: 5
+  radius: 20
   mergeInto: 4
 --- !u!1001 &4227154545244189738
 PrefabInstance:
@@ -154,6 +154,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragoon_Chonky
       objectReference: {fileID: 0}
+    - target: {fileID: 3084415156184943790, guid: c9b2b1daf576e4209bd242d6e7099b49, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c574805a6d5ec489fb1d6dede375b1a8, type: 2}
+    - target: {fileID: 3084415156184943790, guid: c9b2b1daf576e4209bd242d6e7099b49, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c574805a6d5ec489fb1d6dede375b1a8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

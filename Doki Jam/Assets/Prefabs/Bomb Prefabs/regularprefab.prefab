@@ -99,7 +99,7 @@ MonoBehaviour:
   _uidString: 20687d03-33a2-4cf6-9dc1-c74b6bf0b231
   Reliability: 1
   LocalMethodBehavior: 1
-  force: 2
+  force: 0
   radius: 10
   mergeInto: 2
 --- !u!1001 &3554553974751316212
@@ -154,6 +154,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragoon_Regular
       objectReference: {fileID: 0}
+    - target: {fileID: 2416406662737394775, guid: 877ce12cd560a445cb1acebaf0869815, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 45027f8045fea4cf385b8c1129d421c5, type: 2}
+    - target: {fileID: 2416406662737394775, guid: 877ce12cd560a445cb1acebaf0869815, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 45027f8045fea4cf385b8c1129d421c5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
