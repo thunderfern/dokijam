@@ -49,7 +49,7 @@ public class BombSpawner : MonoBehaviour
 
                 /**for (int i = 0; i < 1000; i++)
                 {
-                    Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity);
+                    Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.35f, 044f, 0.5f), Quaternion.identity);
                     if (checkColliders.Length == 0)
                     {
                         break;
@@ -59,26 +59,29 @@ public class BombSpawner : MonoBehaviour
                     {
                         if (coll.gameObject.tag == "Ground")
                         {
-                            bombSpawnPoint.transform.position += new Vector3(0f, 0.01f, 0f);
+                            Vector3 dir = (bombSpawnPoint.transform.position - coll.transform.position).normalized/10;
+                            Debug.Log(coll.gameObject.transform.position);
+                            Debug.Log(bombSpawnPoint);
+                            bombSpawnPoint.transform.position += dir;
                         }
                     }
 
                     
                 }**/
-                    Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity);
+                    /**Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.35f, 0.44f, 0.5f), Quaternion.identity);
                     if (checkColliders.Length == 0)
                     {
                         GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position, new Vector3(0, 0, 0));
                         bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
 
                         
-                    }
+                    }**/
 
 
 
 
-                //GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
-                //bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+                GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
+                bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
             }
         }
         else
