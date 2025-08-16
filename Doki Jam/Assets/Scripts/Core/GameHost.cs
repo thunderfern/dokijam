@@ -23,7 +23,7 @@ public class GameHost : AttributesSync
     private Alteruna.Avatar _avatar;
     private GameObject player;
     private int nstartMap = 6;
-    private int nendMap = 9;
+    private int nendMap = 20;
 
     // Drives gameplay
     private int ncurrentMap = 0;

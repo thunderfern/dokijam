@@ -21488,7 +21488,7 @@ GameObject:
   - component: {fileID: 1127432586063717024}
   m_Layer: 0
   m_Name: Racing9
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
