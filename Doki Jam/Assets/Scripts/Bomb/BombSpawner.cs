@@ -33,12 +33,12 @@ public class BombSpawner : MonoBehaviour
         }*/
 
 
-        //if (!_avatar.IsMe) return;
+        if (!_avatar.IsMe) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero); // z = 0 plane
-            
+
             GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Shoot);
 
             if (plane.Raycast(ray, out float distance))

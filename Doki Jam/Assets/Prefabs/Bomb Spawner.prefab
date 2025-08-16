@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 1620915951306466362, guid: d17ce06dd96eaa74c8dd420f7d89ec94, type: 3}
   - {fileID: 4085131952513213655, guid: 2e2fd4c233dfaa04a868e5896cc33e17, type: 3}
   - {fileID: 5426798610898427026, guid: ae9da5d3dac3743469d9dbf5495ce6df, type: 3}
-  maxBombs: 20
+  maxBombs: 100
 --- !u!114 &9215700519735336132
 MonoBehaviour:
   m_ObjectHideFlags: 0
