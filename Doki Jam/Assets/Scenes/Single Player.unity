@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215700519735336132, guid: b5c32e46dc613a048a019b464b48a98a, type: 3}
       propertyPath: shootingForce
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -669,6 +669,14 @@ PrefabInstance:
     - target: {fileID: 8933369954389709791, guid: dc070217026edec478ab831d50d23612, type: 3}
       propertyPath: m_AngularDrag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933369954389709791, guid: dc070217026edec478ab831d50d23612, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933369954389709791, guid: dc070217026edec478ab831d50d23612, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8933369954389709791, guid: dc070217026edec478ab831d50d23612, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits

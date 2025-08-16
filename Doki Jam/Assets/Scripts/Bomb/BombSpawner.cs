@@ -46,6 +46,39 @@ public class BombSpawner : MonoBehaviour
                 //bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
                 //bombClone.GetComponent<Bomb>().setPosition(bombClone.transform.position, bombClone.GetComponent<Rigidbody>().linearVelocity);
                 GetComponent<BombPool>().BroadcastRemoteMethod("GetBomb", BombType.EGG, bombSpawnPoint.transform.position, Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+
+                /**for (int i = 0; i < 1000; i++)
+                {
+                    Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity);
+                    if (checkColliders.Length == 0)
+                    {
+                        break;
+                    }
+
+                    foreach (Collider coll in checkColliders)
+                    {
+                        if (coll.gameObject.tag == "Ground")
+                        {
+                            bombSpawnPoint.transform.position += new Vector3(0f, 0.01f, 0f);
+                        }
+                    }
+
+                    
+                }**/
+                    Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity);
+                    if (checkColliders.Length == 0)
+                    {
+                        GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
+                        bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+
+                        
+                    }
+
+
+
+
+                //GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
+                //bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
             }
         }
         else
