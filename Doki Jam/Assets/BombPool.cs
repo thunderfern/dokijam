@@ -20,7 +20,7 @@ public class BombPool : MonoBehaviour
     //private Multiplayer _multiplayer;
 
     //private Spawner _spawner;
-    private List<List<GameObject>> bombPool;
+    private List<List<GameObject>> bombPool = new List<List<GameObject>>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -140,9 +140,9 @@ public class BombPool : MonoBehaviour
 
     public void ResetBombs()
     {
-        for (int i = 0; i < prefabs.Count; i++)
+        for (int i = 0; i < bombPool.Count; i++)
         {
-            for (int j = 0; j < maxBombs; j++)
+            for (int j = 0; j < bombPool[i].Count; j++)
             {
                 bombPool[i][j].SetActive(false);
             }

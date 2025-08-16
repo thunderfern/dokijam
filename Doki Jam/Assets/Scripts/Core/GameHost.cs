@@ -76,7 +76,7 @@ public class GameHost : AttributesSync
     {
         if (!completed)
         {
-            player.GetComponent<AcessoryController>().loseCount--;
+            player.GetComponent<AcessoryController>().loseCount++;
             player.GetComponent<AcessoryController>().win = false;
         }
         

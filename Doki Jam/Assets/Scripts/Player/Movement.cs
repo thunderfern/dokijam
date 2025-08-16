@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour
             coll.center = OriginalColliderPosition;
         }
 
-        if (transform.position.y < -100f)
+        if (transform.position.y < -25f)
         {
             if (!gh.completed)
             {

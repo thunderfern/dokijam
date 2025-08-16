@@ -21,7 +21,7 @@ public class Bomb : MonoBehaviour //AttributesSync
 
     void Update()
     {
-        if (transform.position.y < -50f) gameObject.SetActive(false);
+        if (transform.position.y < -25f) gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision other)
