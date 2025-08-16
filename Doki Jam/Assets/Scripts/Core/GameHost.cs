@@ -84,7 +84,9 @@ public class GameHost : AttributesSync
         ncurrentMap = ncurrentMapn;
         currentMap = GameObject.FindGameObjectWithTag("Map");
         spawnPoint = currentMap.transform.Find("Spawnpoint");
+        player.transform.Find("Bomb Spawner").GetComponent<BombPool>().ResetBombs();
         player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
+        player.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, 0);
         player.SetActive(true);
         hasWinner = false;
         completed = false;

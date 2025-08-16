@@ -61,6 +61,7 @@ public class ScreenRoomList : MonoBehaviour
 
             createdEntry.roomObject.onClick.AddListener(() =>
             {
+                GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Click);
                 createdEntry.roomRoom.Join();
                 WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.GAMEPLAY);
             });

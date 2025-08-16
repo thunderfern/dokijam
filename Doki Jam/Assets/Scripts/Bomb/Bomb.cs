@@ -7,6 +7,7 @@ public class Bomb : MonoBehaviour //AttributesSync
     public float force, radius;
     public BombType mergeInto;
     private GameObject bombSpawner;
+    public GameObject explosion;
 
     //private Multiplayer _multiplayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +17,11 @@ public class Bomb : MonoBehaviour //AttributesSync
         //gameObject.SetActive(false);
         //_multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
 
+    }
+
+    void Update()
+    {
+        if (transform.position.y < -50f) gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -33,9 +39,12 @@ public class Bomb : MonoBehaviour //AttributesSync
             gameObject.GetComponent<Bomb>().SetState(false);
             BroadcastRemoteMethod("knockBack");
             if (mergeInto != BombType.NULL) bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2, new Vector3(0, 0, 0));*/
+            GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Explosion);
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
             knockBack();
+            GameObject tmp = Instantiate(explosion);
+            tmp.transform.position = (other.transform.position + transform.position) / 2;
             if (mergeInto != BombType.NULL)
             {
                 bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2);

@@ -11,10 +11,12 @@ public class ScreenMenu : MonoBehaviour
     {
         CreateRoomButton.onClick.AddListener(() =>
         {
+            GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Click);
             WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.CREATE_ROOM);
         });
         
         JoinRoomButton.onClick.AddListener(() => {
+            GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Click);
             WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.ROOM_LIST);
         });
     }

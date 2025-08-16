@@ -6499,6 +6499,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundList:
   - {fileID: 8300000, guid: e7f5a2b4e05c27243810f39ef2863dbe, type: 3}
+  - {fileID: 8300000, guid: 8876e141e5149f14da937f9d8f45bc56, type: 3}
+  - {fileID: 8300000, guid: 33352a5b5dd9b22408a8c399df46b65f, type: 3}
+  - {fileID: 8300000, guid: 65aad4f0d00b3d84ea4026f9a8049459, type: 3}
+  - {fileID: 8300000, guid: b6788fc4294a2724e9c9cc8ff9e9b482, type: 3}
+  - {fileID: 8300000, guid: 3e69204e8a3f26a4b9fede85e7a83691, type: 3}
   backgroundList: []
 --- !u!1 &2032528677
 GameObject:

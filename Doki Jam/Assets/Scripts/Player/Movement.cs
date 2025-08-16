@@ -94,6 +94,7 @@ public class Movement : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity + new Vector3(0, jump, 0);
             isGrounded = false;
             anim.SetBool("isJumping", true);
+            GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Jump);
 
         }
 
@@ -132,6 +133,7 @@ public class Movement : MonoBehaviour
                 GetComponent<AcessoryController>().win = true;
                 GetComponent<AcessoryController>().loseCount = 0;
                 gameHost.GetComponent<GameHost>().BroadcastRemoteMethod("updateWinner");
+                GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Win);
             }
             gameHost.GetComponent<GameHost>().completed = true;
             gameObject.SetActive(false);
