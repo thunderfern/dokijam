@@ -2159,13 +2159,21 @@ PrefabInstance:
       propertyPath: speed
       value: 2.25
       objectReference: {fileID: 0}
+    - target: {fileID: 2604042188104730905, guid: dc070217026edec478ab831d50d23612, type: 3}
+      propertyPath: win
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604042188104730905, guid: dc070217026edec478ab831d50d23612, type: 3}
+      propertyPath: loseCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4582755847089069193, guid: dc070217026edec478ab831d50d23612, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.44
+      value: 8.56
       objectReference: {fileID: 0}
     - target: {fileID: 4582755847089069193, guid: dc070217026edec478ab831d50d23612, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.61
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 4582755847089069193, guid: dc070217026edec478ab831d50d23612, type: 3}
       propertyPath: m_LocalPosition.z

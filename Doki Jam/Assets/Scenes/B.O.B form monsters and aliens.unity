@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c3cf1ada92e47bc99e5eb7b1a903e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  win: 0
+  win: 1
   loseCount: 0
   Crown: {fileID: 6135353138133079626, guid: 096aa29ae5b43472cbc2cb478f9934b6, type: 3}
   ClownHair: {fileID: 5693821700350115818, guid: e85c9f16b6d0947bb89b1277b457bde0, type: 3}
@@ -785,9 +785,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155ebf4df285245c79aa844af913cb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bomb: {fileID: 2183903104089259496, guid: 97e64b17129234b1cb95e4021f490b09, type: 3}
   bombSpawnPoint: {fileID: 0}
   gun: {fileID: 0}
+  player: {fileID: 0}
+  shootingForce: 0
 --- !u!114 &1300038220
 MonoBehaviour:
   m_ObjectHideFlags: 0

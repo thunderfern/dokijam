@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 5102837549742569803}
   - component: {fileID: 8569431542883877879}
   - component: {fileID: 832748809212084117}
+  - component: {fileID: 2604042188104730905}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -185,8 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74167967547bd4b7a8c0ba993cdd049d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  jump: 5
+  speed: 2.25
+  jump: 7
   isMultiplayer: 1
 --- !u!114 &8569431542883877879
 MonoBehaviour:
@@ -250,6 +251,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2604042188104730905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890306925084013455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c3cf1ada92e47bc99e5eb7b1a903e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  win: 0
+  loseCount: 0
+  Crown: {fileID: 6135353138133079626, guid: 096aa29ae5b43472cbc2cb478f9934b6, type: 3}
+  ClownHair: {fileID: 5693821700350115818, guid: e85c9f16b6d0947bb89b1277b457bde0, type: 3}
+  ClownNose: {fileID: 8366993986674102630, guid: d69728f95fdf24d28a42ce48bd2a0433, type: 3}
+  ClownTexture: {fileID: 2800000, guid: 628447a8ab1c14d07b3e0e3b74f594e8, type: 3}
+  RegularTexture: {fileID: 2800000, guid: 84ec21b0371acad42836d962bc7fe2fe, type: 3}
 --- !u!1001 &452527615741439490
 PrefabInstance:
   m_ObjectHideFlags: 0
