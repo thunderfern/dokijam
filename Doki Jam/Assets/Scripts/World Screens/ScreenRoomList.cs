@@ -50,6 +50,9 @@ public class ScreenRoomList : MonoBehaviour
         for (int i = 0; i < _multiplayer.AvailableRooms.Count; i++)
         {
             Room room = _multiplayer.AvailableRooms[i];
+
+            if (room.InviteOnly || (room.MaxUsers == room.GetUserCount())) continue;
+
             RoomEntry createdEntry = new RoomEntry();
 
             createdEntry.roomRoom = room;

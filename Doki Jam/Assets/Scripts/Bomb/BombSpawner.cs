@@ -39,6 +39,9 @@ public class BombSpawner : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero); // z = 0 plane
 
+            GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Jam);
+            
+
             if (plane.Raycast(ray, out float distance))
             {
                 Vector3 point = ray.GetPoint(distance);
@@ -46,7 +49,7 @@ public class BombSpawner : MonoBehaviour
                 //bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
                 //bombClone.GetComponent<Bomb>().setPosition(bombClone.transform.position, bombClone.GetComponent<Rigidbody>().linearVelocity);
                 //GetComponent<BombPool>().BroadcastRemoteMethod("GetBomb", BombType.EGG, bombSpawnPoint.transform.position, Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
-                
+
 
                 /**for (int i = 0; i < 1000; i++)
                 {

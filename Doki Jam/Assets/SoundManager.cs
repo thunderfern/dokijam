@@ -5,6 +5,7 @@ using UnityEngine;
 
 public enum AudioName
 {
+    Jam,
     Null
 }
 
@@ -33,20 +34,15 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip[] soundList;
     public AudioClip[] backgroundList;
-    public List<float> backgroundLength;
-    public List<float> backgroundCurrent;
-    private AudioSource musicSource;
-    private float musicTarget;
     private List<AudioSource> SFXSources;
 
     void Start()
     {
         SFXSources = new List<AudioSource>();
-        musicSource = transform.GetChild(0).GetComponent<AudioSource>();
+        SFXSources.Add(transform.GetChild(0).GetComponent<AudioSource>());
         SFXSources.Add(transform.GetChild(1).GetComponent<AudioSource>());
         SFXSources.Add(transform.GetChild(2).GetComponent<AudioSource>());
         SFXSources.Add(transform.GetChild(3).GetComponent<AudioSource>());
-        SFXSources.Add(transform.GetChild(4).GetComponent<AudioSource>());
     }
 
     void Update()
@@ -99,25 +95,4 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayBackground(AudioName audio, float volume = 0.5f)
-    {
-        if (!musicSource.isPlaying)
-        {
-            musicSource.clip = soundList[(int)audio];
-            musicSource.Play();
-        }
-        else
-        {
-            if (musicSource.clip != soundList[(int)audio])
-            {
-                musicSource.clip = soundList[(int)audio];
-                musicSource.Play();
-            }
-        }
-    }
-
-    public void BackgroundVolume(float volume)
-    {
-        musicTarget = volume;
-    }
 }

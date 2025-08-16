@@ -28,6 +28,8 @@ public class GameHost : AttributesSync
     private int ncurrentMap = 0;
     private Transform spawnPoint;
 
+    public bool hasWinner;
+
     // Spawn for modes
 
     // survival
@@ -52,7 +54,8 @@ public class GameHost : AttributesSync
     void Update()
     {
         mapTime += Time.deltaTime;
-        if (_multiplayer.Me.IsHost) {
+        if (_multiplayer.Me.IsHost)
+        {
             // spawn new map
             if (mapTime >= 10f)
             {
@@ -76,5 +79,12 @@ public class GameHost : AttributesSync
         spawnPoint = currentMap.transform.Find("Spawnpoint");
         player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
         player.SetActive(true);
+        hasWinner = false;
+    }
+
+    [SynchronizableMethod]
+    void updateWinner()
+    {
+        hasWinner = true;
     }
 }
