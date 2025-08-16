@@ -27,6 +27,8 @@ public class ScreenRoomList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_multiplayer) _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
+
         refreshTimer += Time.deltaTime;
         if (refreshTimer >= 5)
         {
