@@ -33,7 +33,7 @@ public class BombSpawner : MonoBehaviour
         }*/
 
 
-        if (!_avatar.IsMe) return;
+        //if (!_avatar.IsMe) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,7 +45,8 @@ public class BombSpawner : MonoBehaviour
                 //GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
                 //bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
                 //bombClone.GetComponent<Bomb>().setPosition(bombClone.transform.position, bombClone.GetComponent<Rigidbody>().linearVelocity);
-                GetComponent<BombPool>().BroadcastRemoteMethod("GetBomb", BombType.EGG, bombSpawnPoint.transform.position, Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+                //GetComponent<BombPool>().BroadcastRemoteMethod("GetBomb", BombType.EGG, bombSpawnPoint.transform.position, Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+                
 
                 /**for (int i = 0; i < 1000; i++)
                 {
@@ -68,24 +69,20 @@ public class BombSpawner : MonoBehaviour
 
                     
                 }**/
-                    /**Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.35f, 0.44f, 0.5f), Quaternion.identity);
-                    if (checkColliders.Length == 0)
-                    {
-                        GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position, new Vector3(0, 0, 0));
-                        bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+                /**Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.35f, 0.44f, 0.5f), Quaternion.identity);
+                if (checkColliders.Length == 0)
+                {
+                    GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position, new Vector3(0, 0, 0));
+                    bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
 
-                        
-                    }**/
+                    
+                }**/
 
-
-
-
-                GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position, new Vector3(0f, 0f, 0f));
+                GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
                 bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
             }
         }
-        else
-        {
+        else {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero); // z = 0 plane
             if (plane.Raycast(ray, out float distance))

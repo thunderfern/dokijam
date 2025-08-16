@@ -8,6 +8,7 @@ public class MovementSync : AttributesSync {
 
 
     void Start() {
+        if (!isMultiplayer) return;
         _avatar = GetComponent<Alteruna.Avatar>();
 
         rb = GetComponent<Rigidbody>();
@@ -16,6 +17,7 @@ public class MovementSync : AttributesSync {
     void Update()
     {
         if (isMultiplayer && !_avatar.IsMe) return;
+        if (!isMultiplayer) return;
         if (!rb) rb = GetComponent<Rigidbody>();
         else BroadcastRemoteMethod("updateTransform", transform.position, rb.linearVelocity);
     }
