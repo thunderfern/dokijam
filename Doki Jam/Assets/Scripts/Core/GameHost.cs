@@ -77,7 +77,7 @@ public class GameHost : AttributesSync
         if (!completed)
         {
             player.GetComponent<AcessoryController>().loseCount--;
-            player.GetComponent<AcessoryController>().winner = false;
+            player.GetComponent<AcessoryController>().win = false;
         }
         
         mapTime = mapTimen;
