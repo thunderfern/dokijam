@@ -108,7 +108,7 @@ public class Movement : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (isMultiplayer && !_avatar.IsMe) return;
-        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "chonkydragoon" || other.gameObject.tag == "eggdragoon" || other.gameObject.tag == "longdragoon" || other.gameObject.tag == "regulardragoon")
+        if ((other.gameObject.tag == "Ground" || other.gameObject.tag == "chonkydragoon" || other.gameObject.tag == "eggdragoon" || other.gameObject.tag == "longdragoon" || other.gameObject.tag == "regulardragoon")&&rb.linearVelocity.y < 0.01f)
         {
             isGrounded = true;
             anim.SetBool("isJumping", false);
