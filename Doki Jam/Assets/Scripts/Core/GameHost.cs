@@ -63,7 +63,7 @@ public class GameHost : AttributesSync
                 player.SetActive(false);
                 _spawner.Despawn(currentMap);
                 ncurrentMap = Random.Range(nstartMap, nendMap + 1);
-                currentMap = _spawner.Spawn(ncurrentMap);
+                currentMap = _spawner.Spawn(ncurrentMap, _spawner.SpawnableObjects[ncurrentMap].transform.position);
                 BroadcastRemoteMethod("resetMapInformation", 0.0f, ncurrentMap);
                 mapTime = 0.0f;
             }
