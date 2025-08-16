@@ -6,6 +6,11 @@ using UnityEngine;
 public enum AudioName
 {
     Jam,
+    Explosion,
+    Win,
+    Click,
+    Shoot,
+    Jump,
     Null
 }
 
@@ -47,7 +52,30 @@ public class SoundManager : MonoBehaviour
 
     void Update()
     {
-
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     PlaySound(AudioName.Jam, 0.36f);
+        // }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     PlaySound(AudioName.Explosion, 0.99f);
+        // }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     PlaySound(AudioName.Win, 0.33f);
+        // }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     PlaySound(AudioName.Click, 0.99f);
+        // }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     PlaySound(AudioName.Shoot, 0.36f);
+        // }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     PlaySound(AudioName.Jump, 0.99f);
+        // }
     }
 
 

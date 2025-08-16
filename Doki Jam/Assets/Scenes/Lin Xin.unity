@@ -3416,8 +3416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldHost: {fileID: 695321546}
-  CreateRoomButton: {fileID: 1858410911}
-  JoinRoomButton: {fileID: 460230371}
+  CreateRoomButton: {fileID: 0}
+  JoinRoomButton: {fileID: 0}
 --- !u!1 &1086630682
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,8 +4369,8 @@ MonoBehaviour:
   WorldHost: {fileID: 695321546}
   _multiplayer: {fileID: 0}
   JoinPrivateRoomButton: {fileID: 2051229074}
-  LobbyEntryPrefab: {fileID: 5873246595417445933, guid: 5cd339a1ae2d54644991305e06716763, type: 3}
-  RoomListList: {fileID: 78386679}
+  LobbyEntryPrefab: {fileID: 0}
+  RoomListList: {fileID: 0}
 --- !u!1 &1333286904
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,7 +4573,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1186604022}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999845
+  m_Size: 0.9999846
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6656,6 +6656,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundList:
   - {fileID: 8300000, guid: e7f5a2b4e05c27243810f39ef2863dbe, type: 3}
+  - {fileID: 8300000, guid: 145a45a2be17a104ab4faec1bf8268cf, type: 3}
+  - {fileID: 8300000, guid: 33352a5b5dd9b22408a8c399df46b65f, type: 3}
+  - {fileID: 8300000, guid: 79f9911842497bd46830f21e1bc5ac05, type: 3}
+  - {fileID: 8300000, guid: b6788fc4294a2724e9c9cc8ff9e9b482, type: 3}
+  - {fileID: 8300000, guid: 3e69204e8a3f26a4b9fede85e7a83691, type: 3}
   backgroundList: []
 --- !u!1 &2051229072
 GameObject:
@@ -6810,7 +6815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.00038146973}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2087729559
