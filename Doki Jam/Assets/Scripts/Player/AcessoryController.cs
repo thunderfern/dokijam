@@ -20,24 +20,32 @@ public class AcessoryController : MonoBehaviour
     void Start()
     {
         tomatoTex = this.transform.Find("Tomato/Tomato");
-        if (tomatoTex != null){
+        if (tomatoTex != null)
+        {
             Debug.Log("notBroke");
             tomatoTex.gameObject.GetComponent<Renderer>().material.mainTexture = RegularTexture;
-        }else{
+        }
+        else
+        {
             Debug.Log("broke");
         }
 
         crownInstance = Instantiate(Crown);//Crown
         crownInstance.transform.SetParent(this.transform);
         crownInstance.SetActive(false);
-        
+        crownInstance.transform.position = this.transform.position + new Vector3(0.022f, 0.785f, 0f);
+
         hairInstance = Instantiate(ClownHair);//Hair
         hairInstance.transform.SetParent(this.transform);
         hairInstance.SetActive(true);
-        
+        hairInstance.transform.position = this.transform.position + new Vector3(0.028f, -0.186f, -0.006f);
+
+
         noseInstance = Instantiate(ClownNose);//Nose
         noseInstance.transform.SetParent(this.transform);
         noseInstance.SetActive(false);
+        noseInstance.transform.position = this.transform.position + new Vector3(0.291f, 0.327f, -0.325f);
+
 
     }
 
