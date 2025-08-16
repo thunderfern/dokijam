@@ -98,6 +98,7 @@ MonoBehaviour:
   force: 5
   radius: 16
   mergeInto: 3
+  explosion: {fileID: 1329335316544219860, guid: 1e22735201b7f44ea88210d05713aa8b, type: 3}
 --- !u!1001 &2168442439566982146
 PrefabInstance:
   m_ObjectHideFlags: 0

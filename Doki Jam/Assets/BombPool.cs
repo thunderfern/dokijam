@@ -54,7 +54,8 @@ public class BombPool : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         /*if (_multiplayer.CurrentRoom.GetUserCount() != 1)
         {
             if (bombPool[0].Count != maxBombs)
@@ -135,5 +136,16 @@ public class BombPool : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void ResetBombs()
+    {
+        for (int i = 0; i < prefabs.Count; i++)
+        {
+            for (int j = 0; j < maxBombs; j++)
+            {
+                bombPool[i][j].SetActive(false);
+            }
+        }
     }
 }

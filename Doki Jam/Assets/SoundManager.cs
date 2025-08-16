@@ -76,6 +76,7 @@ public class SoundManager : MonoBehaviour
         // {
         //     PlaySound(AudioName.Jump, 0.99f);
         // }
+        if (!checkPlaying(AudioName.Jam)) PlaySound(AudioName.Jam);
     }
 
 

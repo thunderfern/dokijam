@@ -15,6 +15,7 @@ public class GameHost : AttributesSync
     public GameMode gameMode;
     public GameObject currentMap;
     public float mapTime = 0;
+    public Transform spawnPoint;
 
     // Other game data
     private Spawner _spawner;
@@ -26,7 +27,6 @@ public class GameHost : AttributesSync
 
     // Drives gameplay
     private int ncurrentMap = 0;
-    private Transform spawnPoint;
 
     public bool hasWinner;
     public bool completed;
@@ -84,7 +84,9 @@ public class GameHost : AttributesSync
         ncurrentMap = ncurrentMapn;
         currentMap = GameObject.FindGameObjectWithTag("Map");
         spawnPoint = currentMap.transform.Find("Spawnpoint");
+        player.transform.Find("Bomb Spawner").GetComponent<BombPool>().ResetBombs();
         player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
+        player.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, 0);
         player.SetActive(true);
         hasWinner = false;
         completed = false;

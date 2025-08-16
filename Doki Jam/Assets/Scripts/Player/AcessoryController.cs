@@ -15,8 +15,6 @@ public class AcessoryController : MonoBehaviour
     private GameObject hairInstance;
     private Transform tomatoTex;
 
-
-
     void Start()
     {
         tomatoTex = this.transform.Find("Tomato/Tomato");

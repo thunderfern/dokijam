@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jump;
     private Rigidbody rb;
+    private GameHost gh;
     private bool isGrounded = false;
     private Animator anim;
 
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         coll = GetComponent<BoxCollider>();
+        gh = GameObject.FindGameObjectWithTag("GameHost").GetComponent<GameHost>(); ;
 
         velocityWithAdded = 0;
 
@@ -46,6 +48,15 @@ public class Movement : MonoBehaviour
             anim.SetBool("isSquatting", false);
             coll.size = OriginalCollider;
             coll.center = OriginalColliderPosition;
+        }
+
+        if (transform.position.y < -100f)
+        {
+            if (!gh.completed)
+            {
+                rb.linearVelocity = new Vector3(0, 0, 0);
+                transform.position = gh.spawnPoint.position;
+            }
         }
     }
 
@@ -83,6 +94,7 @@ public class Movement : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity + new Vector3(0, jump, 0);
             isGrounded = false;
             anim.SetBool("isJumping", true);
+            GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Jump);
 
         }
 
@@ -121,6 +133,7 @@ public class Movement : MonoBehaviour
                 GetComponent<AcessoryController>().win = true;
                 GetComponent<AcessoryController>().loseCount = 0;
                 gameHost.GetComponent<GameHost>().BroadcastRemoteMethod("updateWinner");
+                GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Win);
             }
             gameHost.GetComponent<GameHost>().completed = true;
             gameObject.SetActive(false);
