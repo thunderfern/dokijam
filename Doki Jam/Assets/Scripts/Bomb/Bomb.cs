@@ -1,26 +1,26 @@
 using UnityEngine;
 using Alteruna;
 
-public class Bomb : AttributesSync
+public class Bomb : MonoBehaviour //AttributesSync
 {
     //public GameObject explosion;
     public float force, radius;
     public BombType mergeInto;
     private GameObject bombSpawner;
 
-    private Multiplayer _multiplayer;
+    //private Multiplayer _multiplayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
-        gameObject.SetActive(false);
-        _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
+        //gameObject.SetActive(false);
+        //_multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
 
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!_multiplayer.Me.IsHost) return;
+        //if (!_multiplayer.Me.IsHost) return;
         bombSpawner = GameObject.FindGameObjectWithTag("bomb spawner");
         //GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
         //Debug.Log(other.gameObject);
@@ -29,19 +29,26 @@ public class Bomb : AttributesSync
 
         if (other.gameObject.tag == gameObject.tag && gameObject.activeInHierarchy && other.gameObject.activeInHierarchy)
         {
-            other.gameObject.GetComponent<Bomb>().SetState(false);
+            /*other.gameObject.GetComponent<Bomb>().SetState(false);
             gameObject.GetComponent<Bomb>().SetState(false);
             BroadcastRemoteMethod("knockBack");
-            if (mergeInto != BombType.NULL) bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2, new Vector3(0, 0, 0));
+            if (mergeInto != BombType.NULL) bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2, new Vector3(0, 0, 0));*/
+            other.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            knockBack();
+            if (mergeInto != BombType.NULL)
+            {
+                bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2);
+            }
         }
     }
 
     public void SetState(bool state)
     {
-        BroadcastRemoteMethod("SyncActive", state);
+        //BroadcastRemoteMethod("SyncActive", state);
     }
 
-    [SynchronizableMethod]
+    //[SynchronizableMethod]
     void knockBack()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
@@ -58,7 +65,7 @@ public class Bomb : AttributesSync
         }
     }
 
-    [SynchronizableMethod]
+    //[SynchronizableMethod]
     void SyncActive(bool state)
     {
         gameObject.SetActive(state);

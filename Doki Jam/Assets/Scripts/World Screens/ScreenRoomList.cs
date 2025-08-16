@@ -4,15 +4,12 @@ using UnityEngine.UI;
 public class ScreenRoomList : MonoBehaviour
 {
     public GameObject WorldHost;
-    public Button CreateRoomButton;
     public Button JoinPrivateRoomButton;
+    public Button LobbyEntryPrefab;
+    public GameObject RoomListList;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CreateRoomButton.onClick.AddListener(() =>
-        {
-            WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.CREATE_ROOM);
-        });
         
         JoinPrivateRoomButton.onClick.AddListener(() =>
         {
