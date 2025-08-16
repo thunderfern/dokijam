@@ -51,8 +51,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.5158632, y: 1.8147398, z: 5.3398013}
-  m_Center: {x: 0.00000023841858, y: 0.20453984, z: -2.0884907}
+  m_Size: {x: 2.5158632, y: 0.92958355, z: 5.719154}
+  m_Center: {x: 0.00000023841858, y: -0.2380383, z: -2.1306407}
 --- !u!1001 &4972592646867775675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,6 +121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YELLOWCAR
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8aaf04382b2a54fc9b02a8294cb76ba1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -131,6 +135,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aaf04382b2a54fc9b02a8294cb76ba1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2787533894842699072}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aaf04382b2a54fc9b02a8294cb76ba1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2660495973181669051}
   m_SourcePrefab: {fileID: 100100000, guid: 8aaf04382b2a54fc9b02a8294cb76ba1, type: 3}
 --- !u!4 &4794235562761951056 stripped
 Transform:
@@ -169,3 +176,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 72
   m_CollisionDetection: 0
+--- !u!65 &2660495973181669051
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315192571168345578}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
