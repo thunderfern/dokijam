@@ -100,6 +100,7 @@ public class GameHost : AttributesSync
         
         mapTime = mapTimen;
         ncurrentMap = ncurrentMapn;
+        currentMap = GameObject.FindGameObjectWithTag("Map");
         spawnPoint = currentMap.transform.Find("Spawnpoint");
         player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
         player.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, 0);
