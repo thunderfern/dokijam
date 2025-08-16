@@ -95,6 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39a95db23b854bbfa18da4ac6cb94c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 334396bb-5bd2-484f-8edf-cbfbe549bf25
+  Reliability: 1
+  LocalMethodBehavior: 1
   force: 4
   radius: 16
   mergeInto: 4
