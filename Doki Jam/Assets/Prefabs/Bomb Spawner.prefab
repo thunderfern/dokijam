@@ -45,10 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e49445fda2184f8a2e8a25f0f743e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 0}
-  _uidString: 25da4af8-04fd-428b-90d1-137d606afaa1
-  Reliability: 1
-  LocalMethodBehavior: 1
   prefabs:
   - {fileID: 7601699245231947575, guid: 3009a9fc3ae949944a367e8536b994be, type: 3}
   - {fileID: 1620915951306466362, guid: d17ce06dd96eaa74c8dd420f7d89ec94, type: 3}
@@ -70,4 +66,4 @@ MonoBehaviour:
   bombSpawnPoint: {fileID: 0}
   gun: {fileID: 0}
   player: {fileID: 0}
-  shootingForce: 100
+  shootingForce: 650
