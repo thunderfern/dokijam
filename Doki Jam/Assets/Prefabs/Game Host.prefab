@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbfcfcfdbaf7db409470f67625c35ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 24d41996-e46a-4b57-9aee-2af61535a35d
+  Reliability: 1
+  LocalMethodBehavior: 2
   gameMode: 0
   currentMap: {fileID: 0}
   mapTime: 0

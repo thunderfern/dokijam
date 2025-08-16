@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1080707416871544682}
   - component: {fileID: 9142361056431967874}
   - component: {fileID: 4465701795144521149}
+  - component: {fileID: 861958656470215607}
   m_Layer: 7
   m_Name: chonkyprefab
   m_TagString: chonkydragoon
@@ -60,7 +61,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &9142361056431967874
 BoxCollider:
@@ -98,10 +99,27 @@ MonoBehaviour:
   Multiplayer: {fileID: 0}
   _uidString: d9763b9d-2bb8-4d91-bd80-f0731374d2db
   Reliability: 1
-  LocalMethodBehavior: 1
+  LocalMethodBehavior: 2
   force: 5
   radius: 20
   mergeInto: 4
+--- !u!114 &861958656470215607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426798610898427026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2eae6a24175ce4da84616d7e321a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 08d3f376-5d5e-4673-b070-ce983eb8a2b0
+  Reliability: 2
+  LocalMethodBehavior: 0
+  isMultiplayer: 1
 --- !u!1001 &4227154545244189738
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public enum BombType
     NULL
 }
 
-public class BombPool : MonoBehaviour
+public class BombPool : AttributesSync
 {
     //public List<GameObject> prefabs;
     public List<int> prefabs;
@@ -29,6 +29,7 @@ public class BombPool : MonoBehaviour
 
         bombPool = new List<List<GameObject>>();
         _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
+
         if (_multiplayer.CurrentRoom.GetUserCount() == 1)
         {
             for (int i = 0; i < prefabs.Count; i++)
@@ -41,15 +42,60 @@ public class BombPool : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            for (int i = 0; i < prefabs.Count; i++)
+            {
+                bombPool.Add(new List<GameObject>());
+            }
+        }
     }
+
 
     // Update is called once per frame
-    void Update()
-    {
-
+    void Update() {
+        if (_multiplayer.CurrentRoom.GetUserCount() != 1)
+        {
+            if (bombPool[0].Count != maxBombs)
+            {
+                bombPool[0] = new List<GameObject>();
+                GameObject[] tmp = GameObject.FindGameObjectsWithTag("eggdragoon");
+                foreach (GameObject t in tmp)
+                {
+                    bombPool[0].Add(t);
+                }
+            }
+            if (bombPool[1].Count != maxBombs)
+            {
+                bombPool[1] = new List<GameObject>();
+                GameObject[] tmp = GameObject.FindGameObjectsWithTag("regulardragoon");
+                foreach (GameObject t in tmp)
+                {
+                    bombPool[1].Add(t);
+                }
+            }
+            if (bombPool[2].Count != maxBombs)
+            {
+                bombPool[2] = new List<GameObject>();
+                GameObject[] tmp = GameObject.FindGameObjectsWithTag("longdragoon");
+                foreach (GameObject t in tmp)
+                {
+                    bombPool[2].Add(t);
+                }
+            }
+            if (bombPool[3].Count != maxBombs)
+            {
+                bombPool[3] = new List<GameObject>();
+                GameObject[] tmp = GameObject.FindGameObjectsWithTag("chonkydragoon");
+                foreach (GameObject t in tmp)
+                {
+                    bombPool[3].Add(t);
+                }
+            }
+        }
     }
 
-    public GameObject GetBomb(BombType bomb, Vector3 position)
+     public GameObject getBomb(BombType bomb, Vector3 position, Vector3 force)
     {
         for (int i = 0; i < maxBombs; i++)
         {
@@ -57,6 +103,8 @@ public class BombPool : MonoBehaviour
             {
                 bombPool[(int)bomb][i].transform.position = position;
                 bombPool[(int)bomb][i].GetComponent<Bomb>().SetState(true);
+                bombPool[(int)bomb][i].GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, 0);
+                bombPool[(int)bomb][i].GetComponent<Rigidbody>().AddForce(force);
                 return bombPool[(int)bomb][i];
             }
         }
@@ -66,5 +114,12 @@ public class BombPool : MonoBehaviour
     public void DeleteBomb(GameObject bomb)
     {
         bomb.SetActive(false);
+    }
+    
+    [SynchronizableMethod]
+    public GameObject GetBomb(BombType bomb, Vector3 position, Vector3 force)
+    {
+        if (!_multiplayer.Me.IsHost) return null;
+        return getBomb(bomb, position, force);
     }
 }

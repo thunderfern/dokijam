@@ -7,15 +7,20 @@ public class Bomb : AttributesSync
     public float force, radius;
     public BombType mergeInto;
     private GameObject bombSpawner;
+
+    private Multiplayer _multiplayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
         gameObject.SetActive(false);
+        _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
+
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        if (!_multiplayer.Me.IsHost) return;
         bombSpawner = GameObject.FindGameObjectWithTag("bomb spawner");
         //GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
         //Debug.Log(other.gameObject);
@@ -27,7 +32,7 @@ public class Bomb : AttributesSync
             other.gameObject.GetComponent<Bomb>().SetState(false);
             gameObject.GetComponent<Bomb>().SetState(false);
             BroadcastRemoteMethod("knockBack");
-            if (mergeInto != BombType.NULL) bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2);
+            if (mergeInto != BombType.NULL) bombSpawner.GetComponent<BombPool>().GetBomb(mergeInto, (other.transform.position + transform.position) / 2, new Vector3(0, 0, 0));
         }
     }
 
@@ -58,4 +63,11 @@ public class Bomb : AttributesSync
     {
         gameObject.SetActive(state);
     }
+
+    /*[SynchronizableMethod]
+    public void setPosition(Vector3 position, Vector3 linearVelocity)
+    {
+        transform.position = position + new Vector3(0, 0, 0);
+        GetComponent<Rigidbody>().linearVelocity = linearVelocity + new Vector3(0, 0, 0);
+    }*/
 }

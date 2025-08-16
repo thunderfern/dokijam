@@ -42,8 +42,10 @@ public class BombSpawner : MonoBehaviour
             if (plane.Raycast(ray, out float distance))
             {
                 Vector3 point = ray.GetPoint(distance);
-                GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
-                bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+                //GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
+                //bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
+                //bombClone.GetComponent<Bomb>().setPosition(bombClone.transform.position, bombClone.GetComponent<Rigidbody>().linearVelocity);
+                GetComponent<BombPool>().BroadcastRemoteMethod("GetBomb", BombType.EGG, bombSpawnPoint.transform.position, Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
             }
         }
         else

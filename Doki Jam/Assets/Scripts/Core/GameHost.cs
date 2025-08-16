@@ -8,7 +8,7 @@ public enum GameMode
     RACING
 };
 
-public class GameHost : MonoBehaviour
+public class GameHost : AttributesSync
 {
 
     // Game data
@@ -19,12 +19,15 @@ public class GameHost : MonoBehaviour
     // Other game data
     private Spawner _spawner;
     private Multiplayer _multiplayer;
-    private int nstartMap = 0;
-    private int nendMap = 0;
+    private Alteruna.Avatar _avatar;
+    private GameObject player;
+    private int nstartMap = 6;
+    private int nendMap = 9;
 
     // Drives gameplay
     private int ncurrentMap = 0;
-    
+    private Transform spawnPoint;
+
     // Spawn for modes
 
     // survival
@@ -37,53 +40,41 @@ public class GameHost : MonoBehaviour
         _spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
         _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
 
-        //_multiplayer.SpawnAvatar();
-        // spawns bomb spawner
-        if (_multiplayer.Me.IsHost)
-        {
-            _multiplayer.SpawnAvatar();
-            //_spawner.Spawn(1);
-        }
-        
+        //spawns Avatar
+        _avatar = _multiplayer.SpawnAvatar();
+        player = _avatar.gameObject;
+        player.SetActive(false);
+        mapTime = 100f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_multiplayer.Me.IsHost)
-        {
-            /*if (GameObject.FindGameObjectWithTag("bomb spawner") == null)
-            {
-                _spawner.Spawn(6);
-            }*/
-            mapTime += Time.deltaTime;
-            if (ncurrentMap == 0)
-            {
-                currentMap = _spawner.Spawn(6);
-                ncurrentMap = 6;
-                mapTime = 0;
-            }
+        mapTime += Time.deltaTime;
+        if (_multiplayer.Me.IsHost) {
+            // spawn new map
             if (mapTime >= 10f)
             {
+                player.SetActive(false);
                 _spawner.Despawn(currentMap);
-
-                if (ncurrentMap == 6)
-                {
-                    currentMap = _spawner.Spawn(7);
-                    ncurrentMap = 7;
-                }
-                else
-                {
-                    currentMap = _spawner.Spawn(6);
-                    ncurrentMap = 6;
-                }
-                mapTime = 0;
+                ncurrentMap = Random.Range(nstartMap, nendMap + 1);
+                currentMap = _spawner.Spawn(ncurrentMap);
+                BroadcastRemoteMethod("resetMapInformation", 0.0f, ncurrentMap);
+                mapTime = 0.0f;
             }
         }
-        if (mapTime < 0.0001f && _multiplayer.GetAvatar() == null)
-        {
-            _multiplayer.SpawnAvatar();
-        }
 
+    }
+
+    [SynchronizableMethod]
+    void resetMapInformation(float mapTimen, int ncurrentMapn)
+    {
+        mapTime = mapTimen;
+        ncurrentMap = ncurrentMapn;
+        currentMap = GameObject.FindGameObjectWithTag("Map");
+        spawnPoint = currentMap.transform.Find("Spawnpoint");
+        player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
+        player.SetActive(true);
     }
 }

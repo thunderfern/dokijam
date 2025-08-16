@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1034269678036193295}
   - component: {fileID: 6129674892467505054}
   - component: {fileID: 5159399177796346019}
+  - component: {fileID: -7455449887150313692}
   m_Layer: 7
   m_Name: regularprefab
   m_TagString: regulardragoon
@@ -60,7 +61,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &6129674892467505054
 BoxCollider:
@@ -98,10 +99,27 @@ MonoBehaviour:
   Multiplayer: {fileID: 0}
   _uidString: 20687d03-33a2-4cf6-9dc1-c74b6bf0b231
   Reliability: 1
-  LocalMethodBehavior: 1
-  force: 0
+  LocalMethodBehavior: 2
+  force: 3
   radius: 10
   mergeInto: 2
+--- !u!114 &-7455449887150313692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620915951306466362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2eae6a24175ce4da84616d7e321a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: ab69f4b0-5d7c-4970-942a-fab03299adeb
+  Reliability: 2
+  LocalMethodBehavior: 0
+  isMultiplayer: 1
 --- !u!1001 &3554553974751316212
 PrefabInstance:
   m_ObjectHideFlags: 0

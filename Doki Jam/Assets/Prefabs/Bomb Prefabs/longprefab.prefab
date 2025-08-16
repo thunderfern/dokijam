@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5933312797286926668}
   - component: {fileID: 6425660838416274433}
   - component: {fileID: 48218696416492694}
+  - component: {fileID: 1122686321313042362}
   m_Layer: 7
   m_Name: longprefab
   m_TagString: longdragoon
@@ -60,7 +61,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &6425660838416274433
 BoxCollider:
@@ -98,10 +99,27 @@ MonoBehaviour:
   Multiplayer: {fileID: 0}
   _uidString: 271f241a-f71e-4a3d-ba9c-cf8969129766
   Reliability: 1
-  LocalMethodBehavior: 1
+  LocalMethodBehavior: 2
   force: 3
   radius: 15
   mergeInto: 3
+--- !u!114 &1122686321313042362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085131952513213655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2eae6a24175ce4da84616d7e321a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 10f6e862-6ed8-4fab-98c3-1aa573cf6def
+  Reliability: 2
+  LocalMethodBehavior: 0
+  isMultiplayer: 1
 --- !u!1001 &2168442439566982146
 PrefabInstance:
   m_ObjectHideFlags: 0
