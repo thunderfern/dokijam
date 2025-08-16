@@ -15,6 +15,7 @@ public class GameHost : AttributesSync
     public GameMode gameMode;
     public GameObject currentMap;
     public float mapTime = 0;
+    public Transform spawnPoint;
 
     // Other game data
     private Spawner _spawner;
@@ -26,7 +27,6 @@ public class GameHost : AttributesSync
 
     // Drives gameplay
     private int ncurrentMap = 0;
-    private Transform spawnPoint;
 
     public bool hasWinner;
     public bool completed;

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Alteruna;
 using System.Collections.Generic;
+using TMPro;
 
 public class ScreenRoomList : MonoBehaviour
 {
@@ -9,19 +10,13 @@ public class ScreenRoomList : MonoBehaviour
     public GameObject WorldHost;
     public Multiplayer _multiplayer;
 
-    public Button JoinPrivateRoomButton;
-    public GameObject LobbyEntryPrefab;
+    public Button LobbyEntryPrefab;
     public GameObject RoomListList;
     public List<RoomEntry> RoomEntries;
     private float refreshTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-        JoinPrivateRoomButton.onClick.AddListener(() =>
-        {
-            WorldHost.GetComponent<WorldHost>().EnableOverlay(WorldOverlay.JOIN_ROOM);
-        });
 
         _multiplayer = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Multiplayer>();
         RoomEntries = new List<RoomEntry>();
@@ -44,9 +39,10 @@ public class ScreenRoomList : MonoBehaviour
     {
         for (int i = 0; i < RoomEntries.Count; i++)
         {
-            Destroy(RoomEntries[i].roomObject);
+            Destroy(RoomEntries[i].roomObject.gameObject);
         }
         RoomEntries = new List<RoomEntry>();
+        float addAmount = 0f;
         for (int i = 0; i < _multiplayer.AvailableRooms.Count; i++)
         {
             Room room = _multiplayer.AvailableRooms[i];
@@ -58,7 +54,12 @@ public class ScreenRoomList : MonoBehaviour
             createdEntry.roomRoom = room;
             createdEntry.roomObject = Instantiate(LobbyEntryPrefab, RoomListList.transform);
 
-            createdEntry.roomObject.transform.GetComponentInChildren<Button>().onClick.AddListener(() =>
+            createdEntry.roomObject.GetComponentInChildren<TMP_Text>().text = room.Name;
+
+            createdEntry.roomObject.transform.position = createdEntry.roomObject.transform.position + new Vector3(0f, addAmount, 0f);
+            addAmount += 70f;
+
+            createdEntry.roomObject.onClick.AddListener(() =>
             {
                 createdEntry.roomRoom.Join();
                 WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.GAMEPLAY);
@@ -73,6 +74,6 @@ public class ScreenRoomList : MonoBehaviour
 
 public class RoomEntry
 {
-    public GameObject roomObject;
+    public Button roomObject;
     public Room roomRoom;
 }

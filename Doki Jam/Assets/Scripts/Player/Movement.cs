@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jump;
     private Rigidbody rb;
+    private GameHost gh;
     private bool isGrounded = false;
     private Animator anim;
 
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         coll = GetComponent<BoxCollider>();
+        gh = GameObject.FindGameObjectWithTag("GameHost").GetComponent<GameHost>(); ;
 
         velocityWithAdded = 0;
 
@@ -46,6 +48,15 @@ public class Movement : MonoBehaviour
             anim.SetBool("isSquatting", false);
             coll.size = OriginalCollider;
             coll.center = OriginalColliderPosition;
+        }
+
+        if (transform.position.y < -100f)
+        {
+            if (!gh.completed)
+            {
+                rb.linearVelocity = new Vector3(0, 0, 0);
+                transform.position = gh.spawnPoint.position;
+            }
         }
     }
 
