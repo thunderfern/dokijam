@@ -39,7 +39,6 @@ public class BombSpawner : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero); // z = 0 plane
 
-            GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().PlaySound(AudioName.Jam);
             
 
             if (plane.Raycast(ray, out float distance))
