@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 146354105684931358}
   m_Layer: 0
   m_Name: Game Host
-  m_TagString: Untagged
+  m_TagString: GameHost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,4 +51,6 @@ MonoBehaviour:
   gameMode: 0
   currentMap: {fileID: 0}
   mapTime: 0
+  hasWinner: 0
+  completed: 0
   bombSpawner: {fileID: 8150001006133752708, guid: b5c32e46dc613a048a019b464b48a98a, type: 3}

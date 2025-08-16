@@ -108,10 +108,22 @@ public class Movement : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (isMultiplayer && !_avatar.IsMe) return;
-        if ((other.gameObject.tag == "Ground" || other.gameObject.tag == "chonkydragoon" || other.gameObject.tag == "eggdragoon" || other.gameObject.tag == "longdragoon" || other.gameObject.tag == "regulardragoon")&&rb.linearVelocity.y < 0.01f)
+        if ((other.gameObject.tag == "Ground" || other.gameObject.tag == "chonkydragoon" || other.gameObject.tag == "eggdragoon" || other.gameObject.tag == "longdragoon" || other.gameObject.tag == "regulardragoon") && rb.linearVelocity.y < 0.01f)
         {
             isGrounded = true;
             anim.SetBool("isJumping", false);
+        }
+        if (other.gameObject.tag == "Flag")
+        {
+            GameObject gameHost = GameObject.FindGameObjectWithTag("GameHost");
+            if (!gameHost.GetComponent<GameHost>().hasWinner)
+            {
+                GetComponent<AcessoryController>().win = true;
+                GetComponent<AcessoryController>().loseCount = 0;
+                gameHost.GetComponent<GameHost>().BroadcastRemoteMethod("updateWinner");
+            }
+            gameHost.GetComponent<GameHost>().completed = true;
+            gameObject.SetActive(false);
         }
     }
 

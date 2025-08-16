@@ -29,6 +29,7 @@ public class GameHost : AttributesSync
     private Transform spawnPoint;
 
     public bool hasWinner;
+    public bool completed;
 
     // Spawn for modes
 
@@ -73,6 +74,12 @@ public class GameHost : AttributesSync
     [SynchronizableMethod]
     void resetMapInformation(float mapTimen, int ncurrentMapn)
     {
+        if (!completed)
+        {
+            player.GetComponent<AcessoryController>().loseCount--;
+            player.GetComponent<AcessoryController>().winner = false;
+        }
+        
         mapTime = mapTimen;
         ncurrentMap = ncurrentMapn;
         currentMap = GameObject.FindGameObjectWithTag("Map");
@@ -80,6 +87,7 @@ public class GameHost : AttributesSync
         player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
         player.SetActive(true);
         hasWinner = false;
+        completed = false;
     }
 
     [SynchronizableMethod]
