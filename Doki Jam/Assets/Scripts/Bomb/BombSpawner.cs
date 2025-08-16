@@ -80,7 +80,7 @@ public class BombSpawner : MonoBehaviour
 
 
 
-                GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
+                GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position, new Vector3(0f, 0f, 0f));
                 bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
             }
         }
