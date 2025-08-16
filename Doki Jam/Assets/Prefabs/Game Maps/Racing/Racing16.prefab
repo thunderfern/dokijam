@@ -13563,7 +13563,7 @@ GameObject:
   - component: {fileID: 528494712201266574}
   m_Layer: 0
   m_Name: Racing16
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

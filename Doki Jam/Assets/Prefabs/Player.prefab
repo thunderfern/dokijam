@@ -470,7 +470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3479832368051391006, guid: b5c32e46dc613a048a019b464b48a98a, type: 3}
       propertyPath: maxBombs
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3479832368051391006, guid: b5c32e46dc613a048a019b464b48a98a, type: 3}
       propertyPath: _uidString
