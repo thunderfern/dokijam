@@ -68,7 +68,7 @@ public class BombSpawner : MonoBehaviour
                     Collider[] checkColliders = Physics.OverlapBox(bombSpawnPoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity);
                     if (checkColliders.Length == 0)
                     {
-                        GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position);
+                        GameObject bombClone = GetComponent<BombPool>().GetBomb(BombType.EGG, bombSpawnPoint.transform.position, new Vector3(0, 0, 0));
                         bombClone.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(point - bombSpawnPoint.transform.position) * shootingForce);
 
                         

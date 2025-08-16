@@ -4,11 +4,17 @@ using UnityEngine.UI;
 public class ScreenMenu : MonoBehaviour
 {
     public GameObject WorldHost;
-    public Button PlayButton;
+    public Button CreateRoomButton;
+    public Button JoinRoomButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PlayButton.onClick.AddListener(() => {
+        CreateRoomButton.onClick.AddListener(() =>
+        {
+            WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.CREATE_ROOM);
+        });
+        
+        JoinRoomButton.onClick.AddListener(() => {
             WorldHost.GetComponent<WorldHost>().ChangeScreen(WorldScreen.ROOM_LIST);
         });
     }

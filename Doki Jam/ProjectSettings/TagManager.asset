@@ -19,6 +19,7 @@ TagManager:
   - regulardragoon
   - longdragoon
   - chonkydragoon
+  - Map
   layers:
   - Default
   - TransparentFX
