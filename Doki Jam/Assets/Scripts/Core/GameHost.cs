@@ -54,6 +54,13 @@ public class GameHost : AttributesSync
     // Update is called once per frame
     void Update()
     {
+        if (!_avatar)
+        {
+            _avatar = _multiplayer.SpawnAvatar();
+            player = _avatar.gameObject;
+            player.SetActive(false);
+            mapTime = 100f;
+        }
         mapTime += Time.deltaTime;
         if (_multiplayer.Me.IsHost)
         {
@@ -66,6 +73,17 @@ public class GameHost : AttributesSync
                 currentMap = _spawner.Spawn(ncurrentMap, _spawner.SpawnableObjects[ncurrentMap].transform.position);
                 BroadcastRemoteMethod("resetMapInformation", 0.0f, ncurrentMap);
                 mapTime = 0.0f;
+            }
+        }
+        else if (!currentMap)
+        {
+            currentMap = GameObject.FindGameObjectWithTag("Map");
+            if (currentMap)
+            {
+                spawnPoint = currentMap.transform.Find("Spawnpoint");
+                player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
+                player.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, 0);
+                player.SetActive(true);
             }
         }
 
@@ -82,12 +100,11 @@ public class GameHost : AttributesSync
         
         mapTime = mapTimen;
         ncurrentMap = ncurrentMapn;
-        currentMap = GameObject.FindGameObjectWithTag("Map");
         spawnPoint = currentMap.transform.Find("Spawnpoint");
-        player.transform.Find("Bomb Spawner").GetComponent<BombPool>().ResetBombs();
         player.transform.position = spawnPoint.position + new Vector3(0, 0, 0);
         player.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, 0);
         player.SetActive(true);
+        player.transform.Find("Bomb Spawner").GetComponent<BombPool>().ResetBombs();
         hasWinner = false;
         completed = false;
     }
