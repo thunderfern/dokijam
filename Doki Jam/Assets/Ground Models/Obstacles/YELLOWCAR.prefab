@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2980251793130276083
+--- !u!1 &4249460551356341558
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5010444703098744607}
-  - component: {fileID: 4649096583674055562}
+  - component: {fileID: 8620390979537613215}
+  - component: {fileID: 2465696106134063126}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: Collider (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5010444703098744607
+--- !u!4 &8620390979537613215
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980251793130276083}
+  m_GameObject: {fileID: 4249460551356341558}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4794235562761951056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4649096583674055562
+--- !u!65 &2465696106134063126
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980251793130276083}
+  m_GameObject: {fileID: 4249460551356341558}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -51,8 +51,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.5158632, y: 2.5175135, z: 2}
-  m_Center: {x: 0.00000023841858, y: 0.1380614, z: 0}
+  m_Size: {x: 2.5158632, y: 2.5175135, z: 5.8146486}
+  m_Center: {x: 0.00000023841858, y: 0.1380614, z: -2.1359754}
 --- !u!1001 &4972592646867775675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8aaf04382b2a54fc9b02a8294cb76ba1, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 5010444703098744607}
+      addedObject: {fileID: 8620390979537613215}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aaf04382b2a54fc9b02a8294cb76ba1, type: 3}
       insertIndex: -1
@@ -167,5 +167,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 72
   m_CollisionDetection: 0
