@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _connectOnStart: 1
   _simpleAttributes: 0
-  _transportType: 1
+  _transportType: 2
   _enableLOD: 1
   _allowMultiplayerSingleton: 1
   _disableCamerasOnNonOwnedAvatars: 1

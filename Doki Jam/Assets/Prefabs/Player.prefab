@@ -77,7 +77,6 @@ GameObject:
   - component: {fileID: 911403704647013150}
   - component: {fileID: 9181506788142408102}
   - component: {fileID: 5102837549742569803}
-  - component: {fileID: 8569431542883877879}
   - component: {fileID: 832748809212084117}
   - component: {fileID: 2604042188104730905}
   m_Layer: 6
@@ -188,23 +187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.25
   jump: 7
-  isMultiplayer: 1
---- !u!114 &8569431542883877879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7890306925084013455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9718f6cc84f0b4097fbf21110537ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 0}
-  _uidString: 40209c3f-1b8b-47f6-b186-9e931a178af3
-  Reliability: 2
-  LocalMethodBehavior: 0
   isMultiplayer: 1
 --- !u!23 &832748809212084117
 MeshRenderer:

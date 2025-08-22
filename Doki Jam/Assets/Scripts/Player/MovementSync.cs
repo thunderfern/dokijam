@@ -6,7 +6,6 @@ public class MovementSync : AttributesSync {
     public bool isMultiplayer;
     private Alteruna.Avatar _avatar;
 
-
     void Start() {
         if (!isMultiplayer) return;
         _avatar = GetComponent<Alteruna.Avatar>();
@@ -27,5 +26,6 @@ public class MovementSync : AttributesSync {
     {
         transform.position = position + new Vector3(0, 0, 0);
         rb.linearVelocity = linearVelocity + new Vector3(0, 0, 0);
+        
     }
 }

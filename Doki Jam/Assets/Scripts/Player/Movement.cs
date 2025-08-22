@@ -50,7 +50,15 @@ public class Movement : MonoBehaviour
             coll.center = OriginalColliderPosition;
         }
 
-        if (transform.position.y < -25f)
+        if (transform.position.y < -20f)
+        {
+            if (!gh.completed)
+            {
+                rb.linearVelocity = new Vector3(0, 0, 0);
+                transform.position = gh.spawnPoint.position;
+            }
+        }
+        if (transform.position.y > 20f)
         {
             if (!gh.completed)
             {
