@@ -15,3 +15,4 @@ The most difficult part was doing the physics for the explosions and trying to s
 <img width="794" height="464" alt="image" src="https://github.com/user-attachments/assets/2e6529f6-138e-41aa-8a8b-35ebae270b45" />
 
 
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
