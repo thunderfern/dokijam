@@ -1,6 +1,6 @@
 Tomato and egg is a 2.5 platformer where you can shoot eggs to merge with other eggs and create big explosions to complete different levels!
 
-This project was made for Doki Jam! game jam where the theme was 'chain reactions' so we decided to do a merging like mechanic where the more you merge thte bigger the explosions are, causing chain reactions!
+This project was made for Doki Jam! game jam where the theme was 'chain reactions' so we decided to do a merging like mechanic where the more you merge the bigger the explosions are, causing chain reactions!
 
 We made this project using Unity for the code and Blender for the 3D models.
 
